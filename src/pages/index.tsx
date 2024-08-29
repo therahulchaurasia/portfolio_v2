@@ -4,7 +4,7 @@ import { Inter } from "next/font/google"
 import MyContainer, {
   MySmallerContainer,
 } from "./components/layout/MyContainer"
-import { Heading, HStack, Stack, Text } from "@chakra-ui/react"
+import { Box, Heading, HStack, Stack, Text } from "@chakra-ui/react"
 
 export default function Home() {
   return (
@@ -26,6 +26,7 @@ export default function Home() {
           </HStack>
         </Stack>
       </MyContainer>
+      <Box></Box>
     </>
   )
 }
