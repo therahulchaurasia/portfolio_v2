@@ -6,7 +6,8 @@ interface Props extends ContainerProps {
 export default function MyContainer({ children, boxProps, ...props }: Props) {
   return (
     <Container
-      px={{ base: 4, md: 8 }}
+      py={"100px"}
+      px={{ base: "50px", md: "100px" }}
       maxW={{
         lg: "container.xl",
         xl: "container.2xl",
@@ -20,7 +21,7 @@ export default function MyContainer({ children, boxProps, ...props }: Props) {
 }
 export const MySmallerContainer = ({ children, boxProps, ...props }: Props) => {
   return (
-    <Container maxW={{ lg: "container.sm" }}  {...props}>
+    <Container maxW={{ lg: "container.md" }} {...props}>
       {children}
     </Container>
   )
