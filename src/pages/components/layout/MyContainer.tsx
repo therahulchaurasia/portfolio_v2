@@ -1,4 +1,4 @@
-import { BoxProps, Container, ContainerProps } from "@chakra-ui/react"
+import { BoxProps, Container, ContainerProps } from '@chakra-ui/react'
 interface Props extends ContainerProps {
   boxProps?: BoxProps
   children: React.ReactNode
@@ -6,13 +6,13 @@ interface Props extends ContainerProps {
 export default function MyContainer({ children, boxProps, ...props }: Props) {
   return (
     <Container
-      py={"100px"}
-      px={{ base: "50px", md: "100px" }}
+      py={'80px'}
+      px={{ base: '50px', md: '100px' }}
       maxW={{
-        lg: "container.xl",
-        xl: "container.2xl",
+        lg: 'container.xl',
+        xl: 'container.2xl',
       }}
-      mx={"auto"}
+      mx={'auto'}
       {...props}
     >
       {children}
@@ -21,7 +21,7 @@ export default function MyContainer({ children, boxProps, ...props }: Props) {
 }
 export const MySmallerContainer = ({ children, boxProps, ...props }: Props) => {
   return (
-    <Container maxW={{ lg: "container.md" }} {...props}>
+    <Container maxW={{ lg: 'container.md' }} {...props}>
       {children}
     </Container>
   )
