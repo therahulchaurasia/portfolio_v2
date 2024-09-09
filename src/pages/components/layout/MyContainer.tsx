@@ -6,8 +6,8 @@ interface Props extends ContainerProps {
 export default function MyContainer({ children, boxProps, ...props }: Props) {
   return (
     <Container
-      py={"80px"}
-      px={{ base: "50px", md: "100px" }}
+      py={"100px"}
+      px={{ base: "50px", md: "80px", lg: '50px', xl:'80px' }}
       maxW={{
         lg: "container.xl",
         xl: "container.2xl",

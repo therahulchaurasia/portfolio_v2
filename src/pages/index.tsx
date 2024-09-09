@@ -6,6 +6,7 @@ import {
   HStack,
   Image,
   keyframes,
+  SimpleGrid,
   Stack,
   Text,
 } from "@chakra-ui/react"
@@ -19,6 +20,7 @@ export default function Home() {
     <>
       <Hero />
       <Background />
+      <Skills />
     </>
   )
 }
@@ -63,7 +65,7 @@ const Hero = () => {
   const wave = `${waveAnimation} 1s`
   const [hover, setHover] = useState(false)
   return (
-    <MyContainer height={"80vh"}>
+    <MyContainer>
       <Stack spacing={{ base: 20, xl: 32 }}>
         <HStack spacing={4}>
           <Heading as={"h1"} variant={"h2"} fontWeight={"normal"}>
@@ -159,11 +161,12 @@ const Hero = () => {
 
 const Background = () => {
   return (
-    <MyContainer>
+    <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
       <Flex
         justifyContent={"center"}
-        gap={{ base: 4, md: 14 }}
-        px={{ base: 0, md: 20, xl: 44 }}
+        gap={{ base: 14 }}
+        direction={{ base: "column", md: "row" }}
+        px={{ base: 0, md: 10, xl: 32 }}
       >
         <Text
           textTransform={"uppercase"}
@@ -171,16 +174,18 @@ const Background = () => {
           variant={"md"}
           fontWeight={"bold"}
           color={"brand.primary"}
+          minWidth={"200px"}
           alignSelf={"flex-start"}
+          textAlign={{ base: "start", md: "end" }}
         >
           Background
         </Text>
         <Stack
+          pl={{ base: 8, md: 0 }}
           spacing={4}
-          alignSelf={"flex-end"}
-          fontWeight={"light"}
+          fontWeight={"regular"}
           width={"100%"}
-          maxWidth={"650px"}
+          maxW={"650px"}
         >
           <Text>
             I&apos;m currently an Engineer at Upstatement building things for
@@ -205,3 +210,105 @@ const Background = () => {
     </MyContainer>
   )
 }
+
+const Skills = () => {
+  return (
+    <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+      <Flex
+        justifyContent={"center"}
+        gap={{ base: 14 }}
+        direction={{ base: "column", md: "row" }}
+        px={{ base: 0, md: 10, xl: 32 }}
+      >
+        <Text
+          textTransform={"uppercase"}
+          letterSpacing={"2px"}
+          variant={"md"}
+          fontWeight={"bold"}
+          color={"brand.primary"}
+          minWidth={"200px"}
+          alignSelf={"flex-start"}
+          textAlign={{ base: "start", md: "end" }}
+        >
+          Skills
+        </Text>
+        <SimpleGrid
+          columns={{ base: 2, md: 4 }}
+          gap={14}
+          pl={{ base: 8, md: 0 }}
+        >
+          {skillsData.map((skill, idx) => (
+            <Stack key={idx}>
+              <Text
+                variant={"md"}
+                fontWeight={"bold"}
+                textTransform={"uppercase"}
+              >
+                {skill.title}
+              </Text>
+              {skill.data.map((data, idx) => (
+                <Text key={idx} fontSize={"sm"}>
+                  {data}
+                </Text>
+              ))}
+            </Stack>
+          ))}
+        </SimpleGrid>
+      </Flex>
+    </MyContainer>
+  )
+}
+
+type SkillsData = {
+  title: string
+  data: string[]
+}
+
+const skillsData = [
+  {
+    title: "Languages",
+    data: [
+      "JavaScript (ES6)",
+      "TypeScript",
+      "HTML",
+      "CSS/Sass",
+      "Python",
+      "SQL",
+      "R",
+    ],
+  },
+  {
+    title: "Frameworks",
+    data: [
+      "Ember & Glimmer",
+      "React",
+      "Jekyll",
+      "Node",
+      "D3",
+      "Wordpress",
+      "Timber",
+    ],
+  },
+  {
+    title: "Tools",
+    data: [
+      "Bash",
+      "Git & Github",
+      "Gulp & Grunt",
+      "Chrome DevTools",
+      "Postman",
+      " MongoDB",
+    ],
+  },
+  {
+    title: "Design",
+    data: [
+      "Sketch",
+      "InDesign",
+      "InVision",
+      "Prototyping",
+      "Wireframing",
+      "User Testing",
+    ],
+  },
+]
