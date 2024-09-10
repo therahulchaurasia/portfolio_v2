@@ -65,97 +65,105 @@ const Hero = () => {
   const wave = `${waveAnimation} 1s`
   const [hover, setHover] = useState(false)
   return (
-    <MyContainer>
-      <Stack spacing={{ base: 20, xl: 32 }}>
-        <HStack spacing={4}>
-          <Heading as={"h1"} variant={"h2"} fontWeight={"normal"}>
-            Hello!{" "}
+    // <MyContainer height={"100vh"}>
+    <Flex
+      flexDirection={"column"}
+      justifyContent={"space-around"}
+      maxWidth={"1440px"}
+      marginX={"auto"}
+      paddingX={"100px"}
+      paddingY={"120px"}
+      height={"100vh"}
+    >
+      <HStack spacing={4}>
+        <Heading as={"h1"} variant={"h2"} fontWeight={"normal"}>
+          Hello!{" "}
+        </Heading>
+        <Image
+          width={{ base: "30px", md: "40px" }}
+          src={"/assets/wave.png"}
+          alt="Wave"
+          animation={hover ? wave : ""}
+          cursor={"pointer"}
+          onMouseEnter={(e) => {
+            setHover(true)
+          }}
+          onMouseLeave={(e) => {
+            setHover(false)
+          }}
+        />
+      </HStack>
+      <MySmallerContainer ml={0} pl={0}>
+        <Heading
+          variant={"h2"}
+          fontWeight={"normal"}
+          letterSpacing={"2px"}
+          lineHeight={"1.5"}
+          display={"inline"}
+        >
+          I&apos;m{" "}
+          <Heading as={"span"} variant={"h2"}>
+            Brittany Chiang
           </Heading>
-          <Image
-            width={{ base: "30px", md: "40px" }}
-            src={"/assets/wave.png"}
-            alt="Wave"
-            animation={hover ? wave : ""}
-            cursor={"pointer"}
-            onMouseEnter={(e) => {
-              setHover(true)
-            }}
-            onMouseLeave={(e) => {
-              setHover(false)
-            }}
-          />
-        </HStack>
-        <MySmallerContainer ml={0} pl={0}>
-          <Heading
-            variant={"h2"}
-            fontWeight={"normal"}
-            letterSpacing={"2px"}
-            lineHeight={"1.5"}
-            display={"inline"}
-          >
-            I&apos;m{" "}
-            <Heading as={"span"} variant={"h2"}>
-              Brittany Chiang
-            </Heading>
-            , a design-minded front-end software engineer focused on building
-            beautiful interfaces & experiences
-          </Heading>
-          <Image
-            mx={2}
-            display={"inline"}
-            width={{ base: "30px", md: "40px" }}
-            src={"/assets/technologist.png"}
-            alt="To the right"
-          />
-        </MySmallerContainer>
-        <Flex gap={2} alignItems={"center"} wrap={"wrap"}>
-          <Text variant={"xl"} fontWeight={"medium"}>
-            Get in touch
-          </Text>
-          <Image
-            width={{ base: "25px", md: "30px" }}
-            src={"/assets/pointing-right.png"}
-            alt="To the right"
-          />
-          <Text
-            as={Link}
-            variant={"xl"}
-            href={`mailto:therahulchaurasi@gmail.com`}
-            borderBottom={"3px solid"}
-            borderColor={"brand.primary"}
-            position={"relative"}
-            overflow={"hidden"}
-            py={"2px"}
-            px={"3px"}
-            zIndex={10}
-            whiteSpace={"nowrap"}
-            _hover={{
-              textDecoration: "none",
-              color: "white",
-              _before: {
-                transform: "translateY(0%)",
-                transition: "all 0.2s ease-in-out",
-              },
-            }}
-            transition={"all 0.2s ease-in-out"}
-            _before={{
-              content: '""',
-              zIndex: -1,
-              width: "100%",
-              height: "40px",
-              bg: "brand.primary",
-              position: "absolute",
-              transform: "translateY(80%)",
-              right: 0,
+          , a design-minded front-end software engineer focused on building
+          beautiful interfaces & experiences
+        </Heading>
+        <Image
+          mx={2}
+          display={"inline"}
+          width={{ base: "30px", md: "40px" }}
+          src={"/assets/technologist.png"}
+          alt="To the right"
+        />
+      </MySmallerContainer>
+      <Flex gap={2} alignItems={"center"} wrap={"wrap"}>
+        <Text variant={"xl"} fontWeight={"medium"}>
+          Get in touch
+        </Text>
+        <Image
+          width={{ base: "25px", md: "30px" }}
+          src={"/assets/pointing-right.png"}
+          alt="To the right"
+        />
+        <Text
+          as={Link}
+          variant={"xl"}
+          href={`mailto:therahulchaurasi@gmail.com`}
+          borderBottom={"3px solid"}
+          borderColor={"brand.primary"}
+          position={"relative"}
+          overflow={"hidden"}
+          py={"2px"}
+          px={"3px"}
+          zIndex={10}
+          whiteSpace={"nowrap"}
+          _hover={{
+            textDecoration: "none",
+            color: "white",
+            _before: {
+              transform: "translateY(0%)",
               transition: "all 0.2s ease-in-out",
-            }}
-            textDecoration={"none"}
-          >
-            therahulchaurasia@gmail.com
-          </Text>
-        </Flex>
-      </Stack>
-    </MyContainer>
+            },
+          }}
+          transition={"all 0.2s ease-in-out"}
+          _before={{
+            content: '""',
+            zIndex: -1,
+            width: "100%",
+            height: "40px",
+            bg: "brand.primary",
+            position: "absolute",
+            transform: "translateY(80%)",
+            right: 0,
+            transition: "all 0.2s ease-in-out",
+          }}
+          textDecoration={"none"}
+        >
+          therahulchaurasia@gmail.com
+        </Text>
+      </Flex>
+    </Flex>
+    // </MyContainer>
   )
 }
 
@@ -234,7 +242,7 @@ const Skills = () => {
         </Text>
         <SimpleGrid
           columns={{ base: 2, md: 4 }}
-          gap={14}
+          gap={"5vw"}
           pl={{ base: 8, md: 0 }}
         >
           {skillsData.map((skill, idx) => (
