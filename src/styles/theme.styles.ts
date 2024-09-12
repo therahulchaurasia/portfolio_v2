@@ -97,13 +97,13 @@ const styles = {
     },
     /* Handle */
     "::-webkit-scrollbar-thumb": {
-      background: colors.brand.secondary,
+      background: colors.brand.primary,
       borderRadius: "10px",
     },
 
     /* Handle on hover */
     "::-webkit-scrollbar-thumb:hover": {
-      background: colors.brand.secondary,
+      background: colors.brand.primary,
     },
   }),
 }
