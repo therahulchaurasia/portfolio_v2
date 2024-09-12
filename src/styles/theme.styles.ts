@@ -1,18 +1,14 @@
 import { extendTheme, StyleFunctionProps } from "@chakra-ui/react"
-import {
-  Cabin,
-  Lato,
-  Montserrat,
-  Noto_Sans,
-  Open_Sans,
-  Poppins,
-  Raleway,
-  Roboto,
-} from "next/font/google"
+import { Inconsolata, Lato } from "next/font/google"
 
 const siteFont = Lato({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700", "900"],
+})
+
+const durationFont = Inconsolata({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500"],
 })
 
 // const siteFont = Raleway({
@@ -31,6 +27,7 @@ const colors = {
 const fonts = {
   heading: siteFont.style.fontFamily,
   body: siteFont.style.fontFamily,
+  duration: durationFont.style.fontFamily,
 }
 
 const components = {
@@ -87,7 +84,9 @@ const styles = {
       color: colors.brand.tertiary,
       lineHeight: "1.5",
     },
-
+    "::selection": {
+      background: colors.brand.secondary,
+    },
     "::-webkit-scrollbar": {
       width: "8px",
     },
@@ -98,13 +97,13 @@ const styles = {
     },
     /* Handle */
     "::-webkit-scrollbar-thumb": {
-      background: "#F5DEB7",
+      background: colors.brand.secondary,
       borderRadius: "10px",
     },
 
     /* Handle on hover */
     "::-webkit-scrollbar-thumb:hover": {
-      background: "#dcc7a4",
+      background: colors.brand.secondary,
     },
   }),
 }

@@ -1,12 +1,15 @@
 import { Link } from "@chakra-ui/next-js"
 import {
+  background,
   Box,
+  Divider,
   Flex,
   Heading,
   HStack,
   Image,
   keyframes,
   SimpleGrid,
+  Spacer,
   Stack,
   Text,
 } from "@chakra-ui/react"
@@ -21,6 +24,7 @@ export default function Home() {
       <Hero />
       <Background />
       <Skills />
+      <Experience />
     </>
   )
 }
@@ -71,9 +75,10 @@ const Hero = () => {
       justifyContent={"space-around"}
       maxWidth={"1440px"}
       marginX={"auto"}
-      paddingX={"100px"}
+      paddingX={{ base: "50px", md: "100px" }}
       paddingY={"120px"}
       height={"100vh"}
+      gap={10}
     >
       <HStack spacing={4}>
         <Heading as={"h1"} variant={"h2"} fontWeight={"normal"}>
@@ -90,6 +95,9 @@ const Hero = () => {
           }}
           onMouseLeave={(e) => {
             setHover(false)
+          }}
+          _selection={{
+            background: "transparent",
           }}
         />
       </HStack>
@@ -251,6 +259,7 @@ const Skills = () => {
                 variant={"md"}
                 fontWeight={"bold"}
                 textTransform={"uppercase"}
+                whiteSpace={"nowrap"}
               >
                 {skill.title}
               </Text>
@@ -262,6 +271,56 @@ const Skills = () => {
             </Stack>
           ))}
         </SimpleGrid>
+      </Flex>
+    </MyContainer>
+  )
+}
+
+const Experience = () => {
+  return (
+    <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+      <Flex
+        justifyContent={"center"}
+        gap={{ base: 14 }}
+        direction={{ base: "column", md: "row" }}
+        px={{ base: 0, md: 10, xl: 32 }}
+      >
+        <Text
+          textTransform={"uppercase"}
+          letterSpacing={"2px"}
+          variant={"md"}
+          fontWeight={"bold"}
+          color={"brand.primary"}
+          minWidth={"200px"}
+          alignSelf={"flex-start"}
+          textAlign={{ base: "start", md: "end" }}
+        >
+          Experience
+        </Text>
+        <Stack
+          pl={{ base: 8, md: 0 }}
+          spacing={4}
+          fontWeight={"regular"}
+          width={"100%"}
+          maxW={"650px"}
+        >
+          {experienceData.map((exp, idx) => (
+            <>
+              <Flex alignItems={"center"} justifyContent={"space-between"}>
+                <Stack spacing={0}>
+                  <Text variant={"md"} fontWeight={"extrabold"}>
+                    {exp.companyName}
+                  </Text>
+                  <Text variant={"md"}>{exp.position}</Text>
+                </Stack>
+                <Spacer />
+                <Text fontSize={"sm"} fontFamily={"duration"}>
+                  {exp.duration}
+                </Text>
+              </Flex>
+            </>
+          ))}
+        </Stack>
       </Flex>
     </MyContainer>
   )
@@ -318,5 +377,18 @@ const skillsData = [
       "Wireframing",
       "User Testing",
     ],
+  },
+]
+
+const experienceData = [
+  {
+    companyName: "Webenetic",
+    position: "Software Developer",
+    duration: "May 2023 - Present",
+  },
+  {
+    companyName: "Webenetic",
+    position: "Software Developer",
+    duration: "May 2023 - Present",
   },
 ]
