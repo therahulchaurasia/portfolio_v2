@@ -1,5 +1,5 @@
 import { Link } from "@chakra-ui/next-js"
-import { Box, Flex, HStack, Icon, Text } from "@chakra-ui/react"
+import { Box, Flex, HStack, Icon, Image, Text } from "@chakra-ui/react"
 import React from "react"
 import { FaGithub, FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6"
 import { IoIosMail } from "react-icons/io"
@@ -22,7 +22,20 @@ export default function Footer({}: Props) {
           fontWeight={"semibold"}
         >
           <Text>Designed & Developed by</Text>
-          <Text>Brittany Chiang emoji 2018</Text>
+          <Flex gap={1} alignItems={"center"}>
+            <Text display={"inline"}>Brittany Chiang</Text>
+            <Image
+              src="/assets/rockon.png"
+              alt="Rock On"
+              width={"20px"}
+              height={"20px"}
+              display={"inline"}
+              _selection={{
+                background: "transparent",
+              }}
+            />
+            <Text display={"inline"}>2018</Text>
+          </Flex>
         </Flex>
         <HStack>
           {socials.map((social, idx) => (

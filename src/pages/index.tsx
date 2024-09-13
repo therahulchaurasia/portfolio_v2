@@ -122,6 +122,9 @@ const Hero = () => {
           width={{ base: "30px", md: "40px" }}
           src={"/assets/technologist.png"}
           alt="To the right"
+          _selection={{
+            background: "transparent",
+          }}
         />
       </MySmallerContainer>
       <Flex gap={2} alignItems={"center"} wrap={"wrap"}>
@@ -132,6 +135,9 @@ const Hero = () => {
           width={{ base: "25px", md: "30px" }}
           src={"/assets/pointing-right.png"}
           alt="To the right"
+          _selection={{
+            background: "transparent",
+          }}
         />
         <Text
           as={Link}
