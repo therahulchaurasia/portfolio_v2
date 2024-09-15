@@ -110,7 +110,7 @@ const Hero = () => {
           }}
         />
       </HStack>
-      <MySmallerContainer ml={0} pl={0}>
+      <Box maxW={"700px"} ml={0} pl={0}>
         <Heading
           variant={"h2"}
           fontWeight={"normal"}
@@ -120,10 +120,16 @@ const Hero = () => {
         >
           I&apos;m{" "}
           <Heading as={"span"} variant={"h2"}>
-            Brittany Chiang
+            {process.env.NEXT_PUBLIC_USER_NAME}
           </Heading>
-          , a design-minded front-end software engineer focused on building
-          beautiful interfaces & experiences
+          {/* , a design-loving software engineer,
+          here to build awesome
+          interfaces & experiences
+          dedicated to transforming ideas into stunning UI that leave a lasting
+          impression. */}
+					{/* on a mission to turn complex
+          ideas into simple, beautiful interfaces. */}
+          , a design-loving software engineer with a goal to create digital experiences that feel personal and inviting—because every pixel counts.
         </Heading>
         <Image
           mx={2}
@@ -135,7 +141,7 @@ const Hero = () => {
             background: "transparent",
           }}
         />
-      </MySmallerContainer>
+      </Box>
       <Flex gap={2} alignItems={"center"} wrap={"wrap"}>
         <Text variant={"xl"} fontWeight={"medium"}>
           Get in touch
