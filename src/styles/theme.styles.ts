@@ -27,7 +27,7 @@ const colors = {
 const fonts = {
   heading: siteFont.style.fontFamily,
   body: siteFont.style.fontFamily,
-  duration: durationFont.style.fontFamily,
+  incon: durationFont.style.fontFamily,
 }
 
 const components = {

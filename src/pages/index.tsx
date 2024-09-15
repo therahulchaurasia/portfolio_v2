@@ -1,6 +1,7 @@
 import { Link } from "@chakra-ui/next-js"
 import {
   background,
+  Badge,
   Box,
   Divider,
   Flex,
@@ -17,6 +18,12 @@ import MyContainer, {
   MySmallerContainer,
 } from "./components/layout/MyContainer"
 import { useState } from "react"
+import {
+  spacing10_20,
+  spacing12_14,
+  spacing4_6,
+  spacing6_8,
+} from "@/util/style.util"
 
 export default function Home() {
   return (
@@ -25,6 +32,8 @@ export default function Home() {
       <Background />
       <Skills />
       <Experience />
+      <FeaturedProjects />
+      <OtherProjects />
     </>
   )
 }
@@ -311,7 +320,7 @@ const Experience = () => {
           maxW={"650px"}
         >
           {experienceData.map((exp, idx) => (
-            <>
+            <Box key={idx}>
               <Flex alignItems={"center"} justifyContent={"space-between"}>
                 <Stack spacing={0}>
                   <Text variant={"md"} fontWeight={"extrabold"}>
@@ -320,11 +329,128 @@ const Experience = () => {
                   <Text variant={"md"}>{exp.position}</Text>
                 </Stack>
                 <Spacer />
-                <Text fontSize={"sm"} fontFamily={"duration"}>
+                <Text fontSize={"sm"} fontFamily={"incon"}>
                   {exp.duration}
                 </Text>
               </Flex>
-            </>
+            </Box>
+          ))}
+        </Stack>
+      </Flex>
+    </MyContainer>
+  )
+}
+
+const FeaturedProjects = () => {
+  return (
+    <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+      <Flex
+        justifyContent={"center"}
+        gap={{ base: 14 }}
+        direction={{ base: "column", md: "row" }}
+        px={{ base: 0, md: 10, xl: 32 }}
+      >
+        <Text
+          textTransform={"uppercase"}
+          letterSpacing={"2px"}
+          variant={"md"}
+          fontWeight={"bold"}
+          color={"brand.primary"}
+          minWidth={"200px"}
+          alignSelf={"flex-start"}
+          textAlign={{ base: "start", md: "end" }}
+        >
+          Featured Projects
+        </Text>
+        <Stack
+          pl={{ base: 8, md: 0 }}
+          spacing={{ base: 16, md: 24 }}
+          fontWeight={"regular"}
+          width={"100%"}
+          maxW={"650px"}
+        >
+          {featuredProjectsData.map((project, idx) => (
+            <Box key={idx}>
+              <Flex
+                direction={{ base: "column", lg: "row" }}
+                alignItems={"center"}
+                gap={4}
+                justifyContent={"space-between"}
+              >
+                <Stack spacing={0}>
+                  <Image
+                    src={project.image}
+                    alt={project.description}
+                    width={"100%"}
+                    height={"100%"}
+                    objectFit={"cover"}
+                  />
+                </Stack>
+                <Spacer />
+                <Stack>
+                  <Text fontWeight={"bold"}>{project.name}</Text>
+                  <Text fontSize={"sm"}>{project.description}</Text>
+                </Stack>
+              </Flex>
+            </Box>
+          ))}
+        </Stack>
+      </Flex>
+    </MyContainer>
+  )
+}
+
+const OtherProjects = () => {
+  return (
+    <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+      <Flex
+        justifyContent={"center"}
+        gap={{ base: 14 }}
+        direction={{ base: "column", md: "row" }}
+        px={{ base: 0, md: 10, xl: 32 }}
+      >
+        <Text
+          textTransform={"uppercase"}
+          letterSpacing={"2px"}
+          variant={"md"}
+          fontWeight={"bold"}
+          color={"brand.primary"}
+          minWidth={"200px"}
+          alignSelf={"flex-start"}
+          textAlign={{ base: "start", md: "end" }}
+        >
+          Other Projects
+        </Text>
+        <Stack
+          pl={{ base: 8, md: 0 }}
+          spacing={spacing12_14}
+          fontWeight={"regular"}
+          width={"100%"}
+          maxW={"650px"}
+        >
+          {otherProjectsData.map((project, idx) => (
+            <Stack key={idx} spacing={3}>
+              <Text fontWeight={"bold"}>{project.name}</Text>
+              <Text fontSize={"sm"} mb={3}>
+                {project.description}
+              </Text>
+              <HStack>
+                {project.tools.map((tool, idx) => (
+                  <Badge
+                    p={1}
+                    color={"brand.primary"}
+                    colorScheme={"blue"}
+                    fontFamily={"incon"}
+                    variant={"outline"}
+                    borderRadius={"4px"}
+                    textTransform={"capitalize"}
+                    key={idx}
+                  >
+                    {tool}
+                  </Badge>
+                ))}
+              </HStack>
+            </Stack>
           ))}
         </Stack>
       </Flex>
@@ -396,5 +522,39 @@ const experienceData = [
     companyName: "Webenetic",
     position: "Software Developer",
     duration: "May 2023 - Present",
+  },
+]
+
+const featuredProjectsData = [
+  {
+    name: "Monkey Ninja",
+    image: "/assets/monkeyninja_mockup_small.png",
+    href: "#",
+    description:
+      "Custom wordpress theme built with Timber and Woocommerce for blistabloc, the only reactive shoe insert that prevents blisters from forming.",
+  },
+  {
+    name: "with sam",
+    image: "/assets/withsam_mockup_small.png",
+    href: "#",
+    description:
+      "Custom wordpress theme built with Timber and Woocommerce for blistabloc, the only reactive shoe insert that prevents blisters from forming.",
+  },
+]
+
+const otherProjectsData = [
+  {
+    name: "with sam",
+    href: "#",
+    description:
+      "Custom wordpress theme built with Timber and Woocommerce for blistabloc, the only reactive shoe insert that prevents blisters from forming.",
+    tools: ["JavaScript", "Next JS", "HTML"],
+  },
+  {
+    name: "Monkey Ninja",
+    href: "#",
+    description:
+      "Custom wordpress theme built with Timber and Woocommerce for blistabloc, the only reactive shoe insert that prevents blisters from forming.",
+    tools: ["Javascript", "Next JS", "HTML"],
   },
 ]
