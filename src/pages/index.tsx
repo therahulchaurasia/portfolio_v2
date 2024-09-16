@@ -79,7 +79,8 @@ const Hero = () => {
   const [hover, setHover] = useState(false)
   return (
     // <MyContainer height={"100vh"}>
-    <Flex
+    <MyContainer
+      as={Flex}
       flexDirection={"column"}
       justifyContent={"space-around"}
       maxWidth={"1440px"}
@@ -127,9 +128,11 @@ const Hero = () => {
           interfaces & experiences
           dedicated to transforming ideas into stunning UI that leave a lasting
           impression. */}
-					{/* on a mission to turn complex
+          {/* on a mission to turn complex
           ideas into simple, beautiful interfaces. */}
-          , a design-loving software engineer with a goal to create digital experiences that feel personal and inviting—because every pixel counts.
+          , a design-loving software engineer with a goal to create digital
+          experiences that feel personal and inviting—because every pixel
+          counts.
         </Heading>
         <Image
           mx={2}
@@ -191,7 +194,7 @@ const Hero = () => {
           therahulchaurasia@gmail.com
         </Text>
       </Flex>
-    </Flex>
+    </MyContainer>
     // </MyContainer>
   )
 }
@@ -469,7 +472,7 @@ type SkillsData = {
   data: string[]
 }
 
-const skillsData = [
+const skillsData: SkillsData[] = [
   {
     title: "Languages",
     data: [
@@ -524,11 +527,6 @@ const experienceData = [
     position: "Software Developer",
     duration: "May 2023 - Present",
   },
-  {
-    companyName: "Webenetic",
-    position: "Software Developer",
-    duration: "May 2023 - Present",
-  },
 ]
 
 const featuredProjectsData = [
@@ -537,14 +535,14 @@ const featuredProjectsData = [
     image: "/assets/monkeyninja_mockup_small.png",
     href: "#",
     description:
-      "Custom wordpress theme built with Timber and Woocommerce for blistabloc, the only reactive shoe insert that prevents blisters from forming.",
+      "Monkey Ninja is a dynamic portfolio website displaying the range of digital marketing services provided by a growing business.",
   },
   {
     name: "with sam",
     image: "/assets/withsam_mockup_small.png",
     href: "#",
     description:
-      "Custom wordpress theme built with Timber and Woocommerce for blistabloc, the only reactive shoe insert that prevents blisters from forming.",
+      "A personalized website for a YouTuber, featuring his journey, blog posts, and links to new videos, designed to engage and connect with fans.",
   },
 ]
 
