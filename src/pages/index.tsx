@@ -3,6 +3,7 @@ import {
   background,
   Badge,
   Box,
+  chakra,
   Divider,
   Flex,
   Heading,
@@ -24,6 +25,9 @@ import {
   spacing4_6,
   spacing6_8,
 } from "@/util/style.util"
+import { motion, Variants } from "framer-motion"
+
+const MotionBox = motion(chakra.div)
 
 export default function Home() {
   return (
@@ -74,13 +78,30 @@ from {
 	}
 `
 
+const cardVariants: Variants = {
+  offscreen: {
+    y: 50,
+    opacity: 0,
+  },
+  onscreen: {
+    opacity: 1,
+    y: 0,
+
+    transition: {
+      type: "spring",
+      bounce: 0.2,
+      duration: 1,
+    },
+  },
+}
+
 const Hero = () => {
   const wave = `${waveAnimation} 1s`
   const [hover, setHover] = useState(false)
   return (
     // <MyContainer height={"100vh"}>
-    <MyContainer
-      as={Flex}
+
+    <Flex
       flexDirection={"column"}
       justifyContent={"space-around"}
       maxWidth={"1440px"}
@@ -123,13 +144,6 @@ const Hero = () => {
           <Heading as={"span"} variant={"h2"}>
             {process.env.NEXT_PUBLIC_USER_NAME}
           </Heading>
-          {/* , a design-loving software engineer,
-          here to build awesome
-          interfaces & experiences
-          dedicated to transforming ideas into stunning UI that leave a lasting
-          impression. */}
-          {/* on a mission to turn complex
-          ideas into simple, beautiful interfaces. */}
           , a design-loving software engineer with a goal to create digital
           experiences that feel personal and inviting—because every pixel
           counts.
@@ -194,276 +208,312 @@ const Hero = () => {
           therahulchaurasia@gmail.com
         </Text>
       </Flex>
-    </MyContainer>
+    </Flex>
+
     // </MyContainer>
   )
 }
 
 const Background = () => {
   return (
-    <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
-      <Flex
-        justifyContent={"center"}
-        gap={{ base: 14 }}
-        direction={{ base: "column", md: "row" }}
-        px={{ base: 0, md: 10, xl: 32 }}
-      >
-        <Text
-          textTransform={"uppercase"}
-          letterSpacing={"2px"}
-          variant={"md"}
-          fontWeight={"bold"}
-          color={"brand.primary"}
-          minWidth={"200px"}
-          alignSelf={"flex-start"}
-          textAlign={{ base: "start", md: "end" }}
+    <MotionBox
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={cardVariants}
+    >
+      <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+        <Flex
+          justifyContent={"center"}
+          gap={{ base: 14 }}
+          direction={{ base: "column", md: "row" }}
+          px={{ base: 0, md: 10, xl: 32 }}
         >
-          Background
-        </Text>
-        <Stack
-          pl={{ base: 8, md: 0 }}
-          spacing={4}
-          fontWeight={"regular"}
-          width={"100%"}
-          maxW={"650px"}
-        >
-          <Text>
-            I&apos;m currently an Engineer at Upstatement building things for
-            the web with some awesome people. I recently graduated from
-            Northeastern University after completing three awesome six-month
-            co-ops at MullenLowe U.S., Starry, and Apple Music.
+          <Text
+            textTransform={"uppercase"}
+            letterSpacing={"2px"}
+            variant={"md"}
+            fontWeight={"bold"}
+            color={"brand.primary"}
+            minWidth={"200px"}
+            alignSelf={"flex-start"}
+            textAlign={{ base: "start", md: "end" }}
+          >
+            Background
           </Text>
-          <Text>
-            As a software engineer, I enjoy bridging the gap between engineering
-            and design — combining my technical knowledge with my keen eye for
-            design to create a beautiful product. My goal is to always build
-            applications that are scalable and efficient under the hood while
-            providing engaging, pixel-perfect user experiences.
-          </Text>
-          <Text>
-            When I&apos;m not in front of a computer screen, I&apos;m probably
-            snowboarding, cruising around on my penny board, or crossing off
-            another item on my bucket list.
-          </Text>
-        </Stack>
-      </Flex>
-    </MyContainer>
+          <Stack
+            pl={{ base: 8, md: 0 }}
+            spacing={4}
+            fontWeight={"regular"}
+            width={"100%"}
+            maxW={"650px"}
+          >
+            <Text>
+              I&apos;m currently an Engineer at Upstatement building things for
+              the web with some awesome people. I recently graduated from
+              Northeastern University after completing three awesome six-month
+              co-ops at MullenLowe U.S., Starry, and Apple Music.
+            </Text>
+            <Text>
+              As a software engineer, I enjoy bridging the gap between
+              engineering and design — combining my technical knowledge with my
+              keen eye for design to create a beautiful product. My goal is to
+              always build applications that are scalable and efficient under
+              the hood while providing engaging, pixel-perfect user experiences.
+            </Text>
+            <Text>
+              When I&apos;m not in front of a computer screen, I&apos;m probably
+              snowboarding, cruising around on my penny board, or crossing off
+              another item on my bucket list.
+            </Text>
+          </Stack>
+        </Flex>
+      </MyContainer>
+    </MotionBox>
   )
 }
 
 const Skills = () => {
   return (
-    <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
-      <Flex
-        justifyContent={"center"}
-        gap={{ base: 14 }}
-        direction={{ base: "column", md: "row" }}
-        px={{ base: 0, md: 10, xl: 32 }}
-      >
-        <Text
-          textTransform={"uppercase"}
-          letterSpacing={"2px"}
-          variant={"md"}
-          fontWeight={"bold"}
-          color={"brand.primary"}
-          minWidth={"200px"}
-          alignSelf={"flex-start"}
-          textAlign={{ base: "start", md: "end" }}
+    <MotionBox
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={cardVariants}
+    >
+      <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+        <Flex
+          justifyContent={"center"}
+          gap={{ base: 14 }}
+          direction={{ base: "column", md: "row" }}
+          px={{ base: 0, md: 10, xl: 32 }}
         >
-          Skills
-        </Text>
-        <SimpleGrid
-          columns={{ base: 2, md: 4 }}
-          gap={"5vw"}
-          pl={{ base: 8, md: 0 }}
-        >
-          {skillsData.map((skill, idx) => (
-            <Stack key={idx}>
-              <Text
-                variant={"md"}
-                fontWeight={"bold"}
-                textTransform={"uppercase"}
-                whiteSpace={"nowrap"}
-              >
-                {skill.title}
-              </Text>
-              {skill.data.map((data, idx) => (
-                <Text key={idx} fontSize={"sm"}>
-                  {data}
+          <Text
+            textTransform={"uppercase"}
+            letterSpacing={"2px"}
+            variant={"md"}
+            fontWeight={"bold"}
+            color={"brand.primary"}
+            minWidth={"200px"}
+            alignSelf={"flex-start"}
+            textAlign={{ base: "start", md: "end" }}
+          >
+            Skills
+          </Text>
+          <SimpleGrid
+            columns={{ base: 2, md: 4 }}
+            gap={"5vw"}
+            pl={{ base: 8, md: 0 }}
+          >
+            {skillsData.map((skill, idx) => (
+              <Stack key={idx}>
+                <Text
+                  variant={"md"}
+                  fontWeight={"bold"}
+                  textTransform={"uppercase"}
+                  whiteSpace={"nowrap"}
+                >
+                  {skill.title}
                 </Text>
-              ))}
-            </Stack>
-          ))}
-        </SimpleGrid>
-      </Flex>
-    </MyContainer>
+                {skill.data.map((data, idx) => (
+                  <Text key={idx} fontSize={"sm"}>
+                    {data}
+                  </Text>
+                ))}
+              </Stack>
+            ))}
+          </SimpleGrid>
+        </Flex>
+      </MyContainer>
+    </MotionBox>
   )
 }
 
 const Experience = () => {
   return (
-    <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
-      <Flex
-        justifyContent={"center"}
-        gap={{ base: 14 }}
-        direction={{ base: "column", md: "row" }}
-        px={{ base: 0, md: 10, xl: 32 }}
-      >
-        <Text
-          textTransform={"uppercase"}
-          letterSpacing={"2px"}
-          variant={"md"}
-          fontWeight={"bold"}
-          color={"brand.primary"}
-          minWidth={"200px"}
-          alignSelf={"flex-start"}
-          textAlign={{ base: "start", md: "end" }}
+    <MotionBox
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={cardVariants}
+    >
+      <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+        <Flex
+          justifyContent={"center"}
+          gap={{ base: 14 }}
+          direction={{ base: "column", md: "row" }}
+          px={{ base: 0, md: 10, xl: 32 }}
         >
-          Experience
-        </Text>
-        <Stack
-          pl={{ base: 8, md: 0 }}
-          spacing={4}
-          fontWeight={"regular"}
-          width={"100%"}
-          maxW={"650px"}
-        >
-          {experienceData.map((exp, idx) => (
-            <Box key={idx}>
-              <Flex alignItems={"center"} justifyContent={"space-between"}>
-                <Stack spacing={0}>
-                  <Text variant={"md"} fontWeight={"extrabold"}>
-                    {exp.companyName}
+          <Text
+            textTransform={"uppercase"}
+            letterSpacing={"2px"}
+            variant={"md"}
+            fontWeight={"bold"}
+            color={"brand.primary"}
+            minWidth={"200px"}
+            alignSelf={"flex-start"}
+            textAlign={{ base: "start", md: "end" }}
+          >
+            Experience
+          </Text>
+          <Stack
+            pl={{ base: 8, md: 0 }}
+            spacing={4}
+            fontWeight={"regular"}
+            width={"100%"}
+            maxW={"650px"}
+          >
+            {experienceData.map((exp, idx) => (
+              <Box key={idx}>
+                <Flex alignItems={"center"} justifyContent={"space-between"}>
+                  <Stack spacing={0}>
+                    <Text variant={"md"} fontWeight={"extrabold"}>
+                      {exp.companyName}
+                    </Text>
+                    <Text variant={"md"}>{exp.position}</Text>
+                  </Stack>
+                  <Spacer />
+                  <Text fontSize={"sm"} fontFamily={"incon"}>
+                    {exp.duration}
                   </Text>
-                  <Text variant={"md"}>{exp.position}</Text>
-                </Stack>
-                <Spacer />
-                <Text fontSize={"sm"} fontFamily={"incon"}>
-                  {exp.duration}
-                </Text>
-              </Flex>
-            </Box>
-          ))}
-        </Stack>
-      </Flex>
-    </MyContainer>
+                </Flex>
+              </Box>
+            ))}
+          </Stack>
+        </Flex>
+      </MyContainer>
+    </MotionBox>
   )
 }
 
 const FeaturedProjects = () => {
   return (
-    <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
-      <Flex
-        justifyContent={"center"}
-        gap={{ base: 14 }}
-        direction={{ base: "column", md: "row" }}
-        px={{ base: 0, md: 10, xl: 32 }}
-      >
-        <Text
-          textTransform={"uppercase"}
-          letterSpacing={"2px"}
-          variant={"md"}
-          fontWeight={"bold"}
-          color={"brand.primary"}
-          minWidth={"200px"}
-          alignSelf={"flex-start"}
-          textAlign={{ base: "start", md: "end" }}
+    <MotionBox
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={cardVariants}
+    >
+      <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+        <Flex
+          justifyContent={"center"}
+          gap={{ base: 14 }}
+          direction={{ base: "column", md: "row" }}
+          px={{ base: 0, md: 10, xl: 32 }}
         >
-          Featured Projects
-        </Text>
-        <Stack
-          pl={{ base: 8, md: 0 }}
-          spacing={{ base: 16, md: 24 }}
-          fontWeight={"regular"}
-          width={"100%"}
-          maxW={"650px"}
-        >
-          {featuredProjectsData.map((project, idx) => (
-            <Box key={idx}>
-              <Flex
-                direction={{ base: "column", lg: "row" }}
-                alignItems={"center"}
-                gap={4}
-                justifyContent={"space-between"}
-              >
-                <Stack spacing={0}>
-                  <Image
-                    src={project.image}
-                    alt={project.description}
-                    width={"100%"}
-                    height={"100%"}
-                    objectFit={"cover"}
-                  />
-                </Stack>
-                <Spacer />
-                <Stack>
-                  <Text fontWeight={"bold"}>{project.name}</Text>
-                  <Text fontSize={"sm"}>{project.description}</Text>
-                </Stack>
-              </Flex>
-            </Box>
-          ))}
-        </Stack>
-      </Flex>
-    </MyContainer>
+          <Text
+            textTransform={"uppercase"}
+            letterSpacing={"2px"}
+            variant={"md"}
+            fontWeight={"bold"}
+            color={"brand.primary"}
+            minWidth={"200px"}
+            alignSelf={"flex-start"}
+            textAlign={{ base: "start", md: "end" }}
+          >
+            Featured Projects
+          </Text>
+          <Stack
+            pl={{ base: 8, md: 0 }}
+            spacing={{ base: 16, md: 24 }}
+            fontWeight={"regular"}
+            width={"100%"}
+            maxW={"650px"}
+          >
+            {featuredProjectsData.map((project, idx) => (
+              <Box key={idx}>
+                <Flex
+                  direction={{ base: "column", lg: "row" }}
+                  alignItems={"center"}
+                  gap={4}
+                  justifyContent={"space-between"}
+                >
+                  <Stack spacing={0}>
+                    <Image
+                      src={project.image}
+                      alt={project.description}
+                      width={"100%"}
+                      height={"100%"}
+                      objectFit={"cover"}
+                    />
+                  </Stack>
+                  <Spacer />
+                  <Stack>
+                    <Text fontWeight={"bold"}>{project.name}</Text>
+                    <Text fontSize={"sm"}>{project.description}</Text>
+                  </Stack>
+                </Flex>
+              </Box>
+            ))}
+          </Stack>
+        </Flex>
+      </MyContainer>
+    </MotionBox>
   )
 }
 
 const OtherProjects = () => {
   return (
-    <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
-      <Flex
-        justifyContent={"center"}
-        gap={{ base: 14 }}
-        direction={{ base: "column", md: "row" }}
-        px={{ base: 0, md: 10, xl: 32 }}
-      >
-        <Text
-          textTransform={"uppercase"}
-          letterSpacing={"2px"}
-          variant={"md"}
-          fontWeight={"bold"}
-          color={"brand.primary"}
-          minWidth={"200px"}
-          alignSelf={"flex-start"}
-          textAlign={{ base: "start", md: "end" }}
+    <MotionBox
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={cardVariants}
+    >
+      <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+        <Flex
+          justifyContent={"center"}
+          gap={{ base: 14 }}
+          direction={{ base: "column", md: "row" }}
+          px={{ base: 0, md: 10, xl: 32 }}
         >
-          Other Projects
-        </Text>
-        <Stack
-          pl={{ base: 8, md: 0 }}
-          spacing={spacing12_14}
-          fontWeight={"regular"}
-          width={"100%"}
-          maxW={"650px"}
-        >
-          {otherProjectsData.map((project, idx) => (
-            <Stack key={idx} spacing={3}>
-              <Text fontWeight={"bold"}>{project.name}</Text>
-              <Text fontSize={"sm"} mb={3}>
-                {project.description}
-              </Text>
-              <HStack>
-                {project.tools.map((tool, idx) => (
-                  <Badge
-                    p={1}
-                    color={"brand.primary"}
-                    colorScheme={"blue"}
-                    fontFamily={"incon"}
-                    variant={"outline"}
-                    borderRadius={"4px"}
-                    textTransform={"capitalize"}
-                    key={idx}
-                  >
-                    {tool}
-                  </Badge>
-                ))}
-              </HStack>
-            </Stack>
-          ))}
-        </Stack>
-      </Flex>
-    </MyContainer>
+          <Text
+            textTransform={"uppercase"}
+            letterSpacing={"2px"}
+            variant={"md"}
+            fontWeight={"bold"}
+            color={"brand.primary"}
+            minWidth={"200px"}
+            alignSelf={"flex-start"}
+            textAlign={{ base: "start", md: "end" }}
+          >
+            Other Projects
+          </Text>
+          <Stack
+            pl={{ base: 8, md: 0 }}
+            spacing={spacing12_14}
+            fontWeight={"regular"}
+            width={"100%"}
+            maxW={"650px"}
+          >
+            {otherProjectsData.map((project, idx) => (
+              <Stack key={idx} spacing={3}>
+                <Text fontWeight={"bold"}>{project.name}</Text>
+                <Text fontSize={"sm"} mb={3}>
+                  {project.description}
+                </Text>
+                <HStack>
+                  {project.tools.map((tool, idx) => (
+                    <Badge
+                      p={1}
+                      color={"brand.primary"}
+                      colorScheme={"blue"}
+                      fontFamily={"incon"}
+                      variant={"outline"}
+                      borderRadius={"4px"}
+                      textTransform={"capitalize"}
+                      key={idx}
+                    >
+                      {tool}
+                    </Badge>
+                  ))}
+                </HStack>
+              </Stack>
+            ))}
+          </Stack>
+        </Flex>
+      </MyContainer>
+    </MotionBox>
   )
 }
 
@@ -475,49 +525,19 @@ type SkillsData = {
 const skillsData: SkillsData[] = [
   {
     title: "Languages",
-    data: [
-      "JavaScript (ES6)",
-      "TypeScript",
-      "HTML",
-      "CSS/Sass",
-      "Python",
-      "SQL",
-      "R",
-    ],
+    data: ["JavaScript (ES6)", "TypeScript", "HTML", "CSS/Sass", "SQL"],
   },
   {
     title: "Frameworks",
-    data: [
-      "Ember & Glimmer",
-      "React",
-      "Jekyll",
-      "Node",
-      "D3",
-      "Wordpress",
-      "Timber",
-    ],
+    data: ["React", "NextJs", "Node"],
   },
   {
     title: "Tools",
-    data: [
-      "Bash",
-      "Git & Github",
-      "Gulp & Grunt",
-      "Chrome DevTools",
-      "Postman",
-      " MongoDB",
-    ],
+    data: ["Bash", "Git & Github", "Chrome DevTools", "Postman", "MongoDB"],
   },
   {
     title: "Design",
-    data: [
-      "Sketch",
-      "InDesign",
-      "InVision",
-      "Prototyping",
-      "Wireframing",
-      "User Testing",
-    ],
+    data: ["Figma", "User Testing"],
   },
 ]
 

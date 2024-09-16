@@ -21,20 +21,20 @@ export default function Footer({}: Props) {
           gap={{ base: 1, md: 0 }}
           fontWeight={"semibold"}
         >
-          <Text>Designed & Developed by</Text>
+          <Text>Refrenced by</Text>
           <Flex gap={1} alignItems={"center"}>
-            <Text display={"inline"}>Brittany Chiang</Text>
-            <Image
-              src="/assets/rockon.png"
-              alt="Rock On"
-              width={"20px"}
-              height={"20px"}
-              display={"inline"}
-              _selection={{
-                background: "transparent",
+            <Text
+              as={Link}
+              href={"https://v3.brittanychiang.com/"}
+              target="_blank"
+              color={"brand.primary"}
+              _hover={{
+                textDecoration: "none",
               }}
-            />
-            <Text display={"inline"}>2018</Text>
+              display={"inline"}
+            >
+              Brittany Chiang v3
+            </Text>
           </Flex>
         </Flex>
         <HStack>
