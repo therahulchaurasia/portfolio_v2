@@ -1,10 +1,18 @@
+import { experienceData } from "@/data/experience.data"
+import { featuredProjectsData } from "@/data/featuredProjects.data"
+import { otherProjectsData } from "@/data/otherProjects.data"
+import { skillsData } from "@/data/skills.data"
+import {
+  sectionPaddingX,
+  sectionPaddingY,
+  spacing12_14,
+  spacingLeft,
+} from "@/util/style.util"
 import { Link } from "@chakra-ui/next-js"
 import {
-  background,
   Badge,
   Box,
   chakra,
-  Divider,
   Flex,
   Heading,
   HStack,
@@ -15,17 +23,9 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react"
-import MyContainer, {
-  MySmallerContainer,
-} from "./components/layout/MyContainer"
-import { useState } from "react"
-import {
-  spacing10_20,
-  spacing12_14,
-  spacing4_6,
-  spacing6_8,
-} from "@/util/style.util"
 import { motion, Variants } from "framer-motion"
+import { useState } from "react"
+import MyContainer from "./components/layout/MyContainer"
 
 const MotionBox = motion(chakra.div)
 
@@ -101,15 +101,19 @@ const Hero = () => {
   return (
     // <MyContainer height={"100vh"}>
 
-    <Flex
+    <MyContainer
+      as={Flex}
       flexDirection={"column"}
       justifyContent={"space-around"}
       maxWidth={"1440px"}
       marginX={"auto"}
       paddingX={{ base: "50px", md: "100px" }}
-      paddingY={"120px"}
+      paddingY={{ base: "70px", md: "120px" }}
       height={"100vh"}
       gap={10}
+      maxW={{
+        lg: "8xl",
+      }}
     >
       <HStack spacing={4}>
         <Heading as={"h1"} variant={"h2"} fontWeight={"normal"}>
@@ -208,7 +212,7 @@ const Hero = () => {
           therahulchaurasia@gmail.com
         </Text>
       </Flex>
-    </Flex>
+    </MyContainer>
 
     // </MyContainer>
   )
@@ -222,7 +226,7 @@ const Background = () => {
       viewport={{ once: true, amount: 0.2 }}
       variants={cardVariants}
     >
-      <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+      <Box paddingY={sectionPaddingY} paddingX={sectionPaddingX}>
         <Flex
           justifyContent={"center"}
           gap={{ base: 14 }}
@@ -242,7 +246,7 @@ const Background = () => {
             Background
           </Text>
           <Stack
-            pl={{ base: 8, md: 0 }}
+            pl={spacingLeft}
             spacing={4}
             fontWeight={"regular"}
             width={"100%"}
@@ -268,7 +272,7 @@ const Background = () => {
             </Text>
           </Stack>
         </Flex>
-      </MyContainer>
+      </Box>
     </MotionBox>
   )
 }
@@ -281,7 +285,7 @@ const Skills = () => {
       viewport={{ once: true, amount: 0.2 }}
       variants={cardVariants}
     >
-      <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+      <Box paddingY={sectionPaddingY} paddingX={sectionPaddingX}>
         <Flex
           justifyContent={"center"}
           gap={{ base: 14 }}
@@ -300,18 +304,19 @@ const Skills = () => {
           >
             Skills
           </Text>
-          <SimpleGrid
-            columns={{ base: 2, md: 4 }}
-            gap={"5vw"}
-            pl={{ base: 8, md: 0 }}
+          <Flex
+            pl={spacingLeft}
+            maxW={"650px"}
+            width={"100%"}
+            justifyContent={"space-between"}
+            wrap={"wrap"}
           >
             {skillsData.map((skill, idx) => (
-              <Stack key={idx}>
+              <Stack width={{ base: "47%", md: "auto" }} key={idx}>
                 <Text
                   variant={"md"}
                   fontWeight={"bold"}
                   textTransform={"uppercase"}
-                  whiteSpace={"nowrap"}
                 >
                   {skill.title}
                 </Text>
@@ -322,9 +327,9 @@ const Skills = () => {
                 ))}
               </Stack>
             ))}
-          </SimpleGrid>
+          </Flex>
         </Flex>
-      </MyContainer>
+      </Box>
     </MotionBox>
   )
 }
@@ -337,7 +342,7 @@ const Experience = () => {
       viewport={{ once: true, amount: 0.2 }}
       variants={cardVariants}
     >
-      <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+      <Box paddingY={sectionPaddingY} paddingX={sectionPaddingX}>
         <Flex
           justifyContent={"center"}
           gap={{ base: 14 }}
@@ -357,7 +362,7 @@ const Experience = () => {
             Experience
           </Text>
           <Stack
-            pl={{ base: 8, md: 0 }}
+            pl={spacingLeft}
             spacing={4}
             fontWeight={"regular"}
             width={"100%"}
@@ -370,10 +375,13 @@ const Experience = () => {
                     <Text variant={"md"} fontWeight={"extrabold"}>
                       {exp.companyName}
                     </Text>
+                    <Text fontSize={"sm"} fontFamily={"incon"} hideFrom={"sm"}>
+                      {exp.duration}
+                    </Text>
                     <Text variant={"md"}>{exp.position}</Text>
                   </Stack>
                   <Spacer />
-                  <Text fontSize={"sm"} fontFamily={"incon"}>
+                  <Text fontSize={"sm"} hideBelow={"sm"} fontFamily={"incon"}>
                     {exp.duration}
                   </Text>
                 </Flex>
@@ -381,7 +389,7 @@ const Experience = () => {
             ))}
           </Stack>
         </Flex>
-      </MyContainer>
+      </Box>
     </MotionBox>
   )
 }
@@ -394,7 +402,7 @@ const FeaturedProjects = () => {
       viewport={{ once: true, amount: 0.2 }}
       variants={cardVariants}
     >
-      <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+      <Box paddingY={sectionPaddingY} paddingX={sectionPaddingX}>
         <Flex
           justifyContent={"center"}
           gap={{ base: 14 }}
@@ -414,7 +422,7 @@ const FeaturedProjects = () => {
             Featured Projects
           </Text>
           <Stack
-            pl={{ base: 8, md: 0 }}
+            pl={spacingLeft}
             spacing={{ base: 16, md: 24 }}
             fontWeight={"regular"}
             width={"100%"}
@@ -424,7 +432,7 @@ const FeaturedProjects = () => {
               <Box key={idx}>
                 <Flex
                   direction={{ base: "column", lg: "row" }}
-                  alignItems={"center"}
+                  alignItems={"start"}
                   gap={4}
                   justifyContent={"space-between"}
                 >
@@ -447,7 +455,7 @@ const FeaturedProjects = () => {
             ))}
           </Stack>
         </Flex>
-      </MyContainer>
+      </Box>
     </MotionBox>
   )
 }
@@ -460,7 +468,7 @@ const OtherProjects = () => {
       viewport={{ once: true, amount: 0.2 }}
       variants={cardVariants}
     >
-      <MyContainer px={{ base: "50px", md: "0px", xl: "80px" }}>
+      <Box paddingY={sectionPaddingY} paddingX={sectionPaddingX}>
         <Flex
           justifyContent={"center"}
           gap={{ base: 14 }}
@@ -480,7 +488,7 @@ const OtherProjects = () => {
             Other Projects
           </Text>
           <Stack
-            pl={{ base: 8, md: 0 }}
+            pl={spacingLeft}
             spacing={spacing12_14}
             fontWeight={"regular"}
             width={"100%"}
@@ -492,7 +500,7 @@ const OtherProjects = () => {
                 <Text fontSize={"sm"} mb={3}>
                   {project.description}
                 </Text>
-                <HStack>
+                <HStack wrap={"wrap"}>
                   {project.tools.map((tool, idx) => (
                     <Badge
                       p={1}
@@ -512,73 +520,7 @@ const OtherProjects = () => {
             ))}
           </Stack>
         </Flex>
-      </MyContainer>
+      </Box>
     </MotionBox>
   )
 }
-
-type SkillsData = {
-  title: string
-  data: string[]
-}
-
-const skillsData: SkillsData[] = [
-  {
-    title: "Languages",
-    data: ["JavaScript (ES6)", "TypeScript", "HTML", "CSS/Sass", "SQL"],
-  },
-  {
-    title: "Frameworks",
-    data: ["React", "NextJs", "Node"],
-  },
-  {
-    title: "Tools",
-    data: ["Bash", "Git & Github", "Chrome DevTools", "Postman", "MongoDB"],
-  },
-  {
-    title: "Design",
-    data: ["Figma", "User Testing"],
-  },
-]
-
-const experienceData = [
-  {
-    companyName: "Webenetic",
-    position: "Software Developer",
-    duration: "May 2023 - Present",
-  },
-]
-
-const featuredProjectsData = [
-  {
-    name: "Monkey Ninja",
-    image: "/assets/monkeyninja_mockup_small.png",
-    href: "#",
-    description:
-      "Monkey Ninja is a dynamic portfolio website displaying the range of digital marketing services provided by a growing business.",
-  },
-  {
-    name: "with sam",
-    image: "/assets/withsam_mockup_small.png",
-    href: "#",
-    description:
-      "A personalized website for a YouTuber, featuring his journey, blog posts, and links to new videos, designed to engage and connect with fans.",
-  },
-]
-
-const otherProjectsData = [
-  {
-    name: "with sam",
-    href: "#",
-    description:
-      "Custom wordpress theme built with Timber and Woocommerce for blistabloc, the only reactive shoe insert that prevents blisters from forming.",
-    tools: ["JavaScript", "Next JS", "HTML"],
-  },
-  {
-    name: "Monkey Ninja",
-    href: "#",
-    description:
-      "Custom wordpress theme built with Timber and Woocommerce for blistabloc, the only reactive shoe insert that prevents blisters from forming.",
-    tools: ["Javascript", "Next JS", "HTML"],
-  },
-]

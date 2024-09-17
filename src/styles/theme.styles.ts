@@ -59,7 +59,7 @@ const components = {
         fontSize: ["3xl", "4xl", "5xl"],
       },
       h2: {
-        fontSize: ["2xl", "3xl", "4xl"],
+        fontSize: ["xl", "3xl", "4xl"],
       },
       h3: {
         fontSize: ["xl", "2xl", "3xl"],

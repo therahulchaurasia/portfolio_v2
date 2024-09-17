@@ -20,22 +20,21 @@ export default function Footer({}: Props) {
           direction={{ base: "row", md: "column" }}
           gap={{ base: 1, md: 0 }}
           fontWeight={"semibold"}
+         whiteSpace={'nowrap'}
         >
           <Text>Refrenced by</Text>
-          <Flex gap={1} alignItems={"center"}>
-            <Text
-              as={Link}
-              href={"https://v3.brittanychiang.com/"}
-              target="_blank"
-              color={"brand.primary"}
-              _hover={{
-                textDecoration: "none",
-              }}
-              display={"inline"}
-            >
-              Brittany Chiang v3
-            </Text>
-          </Flex>
+          <Text
+            as={Link}
+            href={"https://v3.brittanychiang.com/"}
+            target="_blank"
+            color={"brand.primary"}
+            _hover={{
+              textDecoration: "none",
+            }}
+            display={"inline"}
+          >
+            Brittany Chiang v3
+          </Text>
         </Flex>
         <HStack>
           {socials.map((social, idx) => (
@@ -75,17 +74,12 @@ const socials = [
   },
   {
     label: "Twitter",
-    href: "#",
+    href: "https://x.com/rahul_develops",
     icon: FaXTwitter,
   },
   {
-    label: "Instagram",
-    href: "#",
-    icon: FaInstagram,
-  },
-  {
     label: "Github",
-    href: "#",
+    href: "https://github.com/therahulchaurasia",
     icon: FaGithub,
   },
   {
