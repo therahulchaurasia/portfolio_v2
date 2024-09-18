@@ -1,3 +1,5 @@
+import MetaHead from "@/components/util/MetaHead"
+import { CustomTextLink, ProjectLink } from "@/components/util/CustomLink"
 import { experienceData } from "@/data/experience.data"
 import { featuredProjectsData } from "@/data/featuredProjects.data"
 import { otherProjectsData } from "@/data/otherProjects.data"
@@ -5,25 +7,29 @@ import { skillsData } from "@/data/skills.data"
 import { spacing12_14 } from "@/util/style.util"
 import { Link } from "@chakra-ui/next-js"
 import {
-  Badge,
   Box,
   Flex,
   Heading,
   HStack,
-  Icon,
   Image,
   keyframes,
   Spacer,
   Stack,
   Text,
+  useColorMode,
 } from "@chakra-ui/react"
 import { useState } from "react"
 import MyContainer, { SectionContainer } from "../components/layout/MyContainer"
-import { FaArrowRight } from "react-icons/fa6"
 
 export default function Home() {
   return (
     <>
+      <MetaHead
+        title="Rahul Chaurasiya - Home"
+        description="Design-minded software engineer with a goal to create digital
+          experiences that feel personal and inviting—because every pixel counts."
+        url="/"
+      />
       <Hero />
       <Background />
       <Skills />
@@ -194,13 +200,29 @@ const Hero = () => {
 }
 
 const Background = () => {
+  const { colorMode } = useColorMode()
+  console.log(colorMode)
+
   return (
     <SectionContainer sectionText="Background">
       <Text>
-        I&apos;m currently an Engineer at Upstatement building things for the
-        web with some awesome people. I recently graduated from Northeastern
-        University after completing three awesome six-month co-ops at MullenLowe
-        U.S., Starry, and Apple Music.
+        I&apos;m currently an Engineer at Webenetic Pvt Ltd where I work on our
+        home grown CRM and websites for our clients. Meanwhile, I also freelance
+        with the cool people at{" "}
+        {/* <Text
+          as={Link}
+          href={"https://thezenlabs.in/"}
+          fontWeight={"extrabold"}
+          variant={"customLinkBlack"}
+        >
+          thezenlabs.
+        </Text> */}
+        <CustomTextLink
+          label="thezenlabs"
+          href={"https://thezenlabs.in/"}
+          afterColor={colorMode === "dark" ? "white" : "brand.tertiary"}
+          fontWeight={"extrabold"}
+        />
       </Text>
       <Text>
         As a software engineer, I enjoy building software in the sweet spot
@@ -211,7 +233,7 @@ const Background = () => {
         finished project is not just a milestone, but a testament to my growth.
       </Text>
       <Text>
-        <Text as={"span"} fontWeight={"semibold"}>
+        <Text as={"span"} fontWeight={"extrabold"}>
           When I&apos;m not in front of a computer screen
         </Text>
         , I&apos;m probably taking a stroll around my neighborhood or getting
@@ -273,18 +295,7 @@ const Experience = () => {
           </Flex>
         </Box>
       ))}
-      <HStack role="group" cursor={"pointer"}>
-        <Heading variant={"h5"}>View My Resume</Heading>
-        <Icon
-          as={FaArrowRight}
-          boxSize={6}
-          color={"brand.primary"}
-          transition={"all 0.3s ease"}
-          _groupHover={{
-            transform: "translateX(10px)",
-          }}
-        />
-      </HStack>
+      <ProjectLink label="View my resume" href="#" iconProps={{ boxSize: 5 }} />
     </SectionContainer>
   )
 }
@@ -341,24 +352,29 @@ const OtherProjects = () => {
     >
       {otherProjectsData.map((project, idx) => (
         <Stack key={idx} spacing={3}>
-          <Text fontWeight={"bold"}>{project.name}</Text>
+          <ProjectLink
+            label={project.name}
+            href={project.href}
+            iconProps={{ boxSize: 4 }}
+          />
           <Text fontSize={"sm"} mb={3}>
             {project.description}
           </Text>
           <HStack wrap={"wrap"}>
             {project.tools.map((tool, idx) => (
-              <Badge
+              <Text
                 p={1}
                 color={"brand.primary"}
-                colorScheme={"blue"}
                 fontFamily={"incon"}
-                variant={"outline"}
+                fontSize={"12px"}
+                fontWeight={"bold"}
+                border={"1px solid"}
                 borderRadius={"4px"}
                 textTransform={"capitalize"}
                 key={idx}
               >
                 {tool}
-              </Badge>
+              </Text>
             ))}
           </HStack>
         </Stack>

@@ -1,5 +1,17 @@
-import { sectionPaddingX, sectionPaddingY, spacingLeft } from "@/util/style.util"
-import { BoxProps, Container, ContainerProps, Flex, Stack, StackProps, Text } from "@chakra-ui/react"
+import {
+  sectionPaddingX,
+  sectionPaddingY,
+  spacingLeft,
+} from "@/util/style.util"
+import {
+  BoxProps,
+  Container,
+  ContainerProps,
+  Flex,
+  Stack,
+  StackProps,
+  Text,
+} from "@chakra-ui/react"
 import { cardVariants, MotionBox } from "../util/MotionHelper"
 interface Props extends ContainerProps {
   boxProps?: BoxProps
@@ -26,12 +38,18 @@ export const MySmallerContainer = ({ children, boxProps, ...props }: Props) => {
   )
 }
 
-export const SectionContainer = ({ children, sectionText,stackProps,boxProps, ...props }: SectionProps) => {
+export const SectionContainer = ({
+  children,
+  sectionText,
+  stackProps,
+  boxProps,
+  ...props
+}: SectionProps) => {
   return (
     <MotionBox
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
       variants={cardVariants}
     >
       <Flex
@@ -42,18 +60,17 @@ export const SectionContainer = ({ children, sectionText,stackProps,boxProps, ..
         paddingY={sectionPaddingY}
         paddingX={sectionPaddingX}
       >
-         <Text variant={"sectionMd"}>{sectionText}</Text>
-      <Stack
-        pl={spacingLeft}
-        spacing={4}
-        fontWeight={"regular"}
-        width={"100%"}
-        maxW={"650px"}
-        {...stackProps}
-      >
-
-        {children}
-      </Stack>
+        <Text variant={"sectionMd"}>{sectionText}</Text>
+        <Stack
+          pl={spacingLeft}
+          spacing={4}
+          fontWeight={"regular"}
+          width={"100%"}
+          maxW={"650px"}
+          {...stackProps}
+        >
+          {children}
+        </Stack>
       </Flex>
     </MotionBox>
   )

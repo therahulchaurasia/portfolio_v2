@@ -2,6 +2,7 @@ import { Link } from "@chakra-ui/next-js"
 import { Box, Flex, HStack, Icon, Text } from "@chakra-ui/react"
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6"
 import { IoIosMail } from "react-icons/io"
+import { CustomTextLink } from "../util/CustomLink"
 
 type Props = {}
 
@@ -21,7 +22,7 @@ export default function Footer({}: Props) {
           whiteSpace={"nowrap"}
         >
           <Text>Refrenced by</Text>
-          <Text
+          {/* <Text
             as={Link}
             href={"https://v3.brittanychiang.com/"}
             target="_blank"
@@ -32,7 +33,13 @@ export default function Footer({}: Props) {
             display={"inline"}
           >
             Brittany Chiang v3{" "}
-          </Text>
+          </Text> */}
+          <CustomTextLink
+            color={"brand.primary"}
+            label={"Brittany Chiang v3"}
+            href={"https://v3.brittanychiang.com/"}
+            afterColor="brand.primary"
+          />
         </Flex>
         <HStack>
           {socials.map((social, idx) => (
@@ -44,17 +51,17 @@ export default function Footer({}: Props) {
                 textDecoration: "none",
               }}
             >
-              <Text
+              {/* <Text
                 textTransform={"uppercase"}
                 letterSpacing={"1px"}
                 fontSize={"sm"}
                 fontWeight={"bold"}
                 color={"brand.primary"}
                 alignSelf={"flex-start"}
-                position={"relative"}
                 mx={5}
                 hideBelow={"lg"}
                 transition={"all 0.2s ease-in-out"}
+                position={"relative"}
                 _after={{
                   content: '""',
                   position: "absolute",
@@ -76,7 +83,21 @@ export default function Footer({}: Props) {
                 }}
               >
                 {social.label}
-              </Text>
+              </Text> */}
+              <CustomTextLink
+                textTransform={"uppercase"}
+                letterSpacing={"1px"}
+                fontSize={"sm"}
+                fontWeight={"bold"}
+                color={"brand.primary"}
+                alignSelf={"flex-start"}
+                mx={5}
+                hideBelow={"lg"}
+                transition={"all 0.2s ease-in-out"}
+                label={social.label}
+                href={social.href}
+                afterColor={"brand.primary"}
+              />
               <Icon
                 as={social.icon}
                 boxSize={"22px"}
@@ -110,7 +131,7 @@ const socials = [
   },
   {
     label: "Linkedin",
-    href: "#",
+    href: "https://www.linkedin.com/in/therahulchaurasia/",
     icon: FaLinkedin,
   },
 ]

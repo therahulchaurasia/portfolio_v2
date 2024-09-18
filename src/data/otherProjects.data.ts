@@ -36,7 +36,7 @@ export const otherProjectsData = [
   },
   {
     name: "Game Hub",
-    href: "https://chakraframer.com/",
+    href: "https://game-hub-self-iota.vercel.app/",
     description:
       "Game Hub is a sleek web application I developed using React with Vite, dedicated to gamers eager to explore the RAWG game database API. The main focus of the project was to improve my experience in handling API's.Users can effortlessly search for games and filter results across various platforms, making it easy to discover new titles tailored to their preferences.",
     tools: ["JavaScript", "React", "Chakra UI", "Axios", "Rawg API"],

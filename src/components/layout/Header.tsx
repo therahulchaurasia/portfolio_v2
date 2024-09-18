@@ -6,7 +6,7 @@ type Props = {}
 
 export default function Header({}: Props) {
   const { colorMode, toggleColorMode } = useColorMode()
-
+  
   return (
     <>
       <Flex
@@ -19,7 +19,12 @@ export default function Header({}: Props) {
         gap={2}
       >
         <Icon as={TiWeatherSunny} boxSize={6} />
-        <Switch size="lg" onChange={toggleColorMode} />
+        <Switch
+          colorScheme="teal"
+          size="lg"
+          isChecked={colorMode === 'dark' ? true: false}
+          onChange={toggleColorMode}
+        />
         <Icon as={FiMoon} boxSize={5} />
       </Flex>
     </>
