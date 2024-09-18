@@ -2,32 +2,22 @@ import { experienceData } from "@/data/experience.data"
 import { featuredProjectsData } from "@/data/featuredProjects.data"
 import { otherProjectsData } from "@/data/otherProjects.data"
 import { skillsData } from "@/data/skills.data"
-import {
-  sectionPaddingX,
-  sectionPaddingY,
-  spacing12_14,
-  spacingLeft,
-} from "@/util/style.util"
+import { spacing12_14 } from "@/util/style.util"
 import { Link } from "@chakra-ui/next-js"
 import {
   Badge,
   Box,
-  chakra,
   Flex,
   Heading,
   HStack,
   Image,
   keyframes,
-  SimpleGrid,
   Spacer,
   Stack,
   Text,
 } from "@chakra-ui/react"
-import { motion, Variants } from "framer-motion"
 import { useState } from "react"
-import MyContainer from "./components/layout/MyContainer"
-
-const MotionBox = motion(chakra.div)
+import MyContainer, { SectionContainer } from "./components/layout/MyContainer"
 
 export default function Home() {
   return (
@@ -77,23 +67,6 @@ from {
 			transform: none
 	}
 `
-
-const cardVariants: Variants = {
-  offscreen: {
-    y: 50,
-    opacity: 0,
-  },
-  onscreen: {
-    opacity: 1,
-    y: 0,
-
-    transition: {
-      type: "spring",
-      bounce: 0.2,
-      duration: 1,
-    },
-  },
-}
 
 const Hero = () => {
   const wave = `${waveAnimation} 1s`
@@ -220,307 +193,147 @@ const Hero = () => {
 
 const Background = () => {
   return (
-    <MotionBox
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={cardVariants}
-    >
-      <Box paddingY={sectionPaddingY} paddingX={sectionPaddingX}>
-        <Flex
-          justifyContent={"center"}
-          gap={{ base: 14 }}
-          direction={{ base: "column", md: "row" }}
-          px={{ base: 0, md: 10, xl: 32 }}
-        >
-          <Text
-            textTransform={"uppercase"}
-            letterSpacing={"2px"}
-            variant={"md"}
-            fontWeight={"bold"}
-            color={"brand.primary"}
-            minWidth={"200px"}
-            alignSelf={"flex-start"}
-            textAlign={{ base: "start", md: "end" }}
-          >
-            Background
-          </Text>
-          <Stack
-            pl={spacingLeft}
-            spacing={4}
-            fontWeight={"regular"}
-            width={"100%"}
-            maxW={"650px"}
-          >
-            <Text>
-              I&apos;m currently an Engineer at Upstatement building things for
-              the web with some awesome people. I recently graduated from
-              Northeastern University after completing three awesome six-month
-              co-ops at MullenLowe U.S., Starry, and Apple Music.
-            </Text>
-            <Text>
-              As a software engineer, I enjoy bridging the gap between
-              engineering and design — combining my technical knowledge with my
-              keen eye for design to create a beautiful product. My goal is to
-              always build applications that are scalable and efficient under
-              the hood while providing engaging, pixel-perfect user experiences.
-            </Text>
-            <Text>
-              When I&apos;m not in front of a computer screen, I&apos;m probably
-              snowboarding, cruising around on my penny board, or crossing off
-              another item on my bucket list.
-            </Text>
-          </Stack>
-        </Flex>
-      </Box>
-    </MotionBox>
+    <SectionContainer sectionText="Background">
+      <Text>
+        I&apos;m currently an Engineer at Upstatement building things for the
+        web with some awesome people. I recently graduated from Northeastern
+        University after completing three awesome six-month co-ops at MullenLowe
+        U.S., Starry, and Apple Music.
+      </Text>
+      <Text>
+        As a software engineer, I enjoy bridging the gap between engineering and
+        design — combining my technical knowledge with my keen eye for design to
+        create a beautiful product. My goal is to always build applications that
+        are scalable and efficient under the hood while providing engaging,
+        pixel-perfect user experiences.
+      </Text>
+      <Text>
+        When I&apos;m not in front of a computer screen, I&apos;m probably
+        snowboarding, cruising around on my penny board, or crossing off another
+        item on my bucket list.
+      </Text>
+    </SectionContainer>
   )
 }
 
 const Skills = () => {
   return (
-    <MotionBox
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={cardVariants}
+    <SectionContainer
+      sectionText="Skills"
+      stackProps={{
+        as: Flex,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        wrap: "wrap",
+      }}
     >
-      <Box paddingY={sectionPaddingY} paddingX={sectionPaddingX}>
-        <Flex
-          justifyContent={"center"}
-          gap={{ base: 14 }}
-          direction={{ base: "column", md: "row" }}
-          px={{ base: 0, md: 10, xl: 32 }}
-        >
-          <Text
-            textTransform={"uppercase"}
-            letterSpacing={"2px"}
-            variant={"md"}
-            fontWeight={"bold"}
-            color={"brand.primary"}
-            minWidth={"200px"}
-            alignSelf={"flex-start"}
-            textAlign={{ base: "start", md: "end" }}
-          >
-            Skills
+      {skillsData.map((skill, idx) => (
+        <Stack width={{ base: "47%", md: "auto" }} key={idx}>
+          <Text variant={"md"} fontWeight={"bold"} textTransform={"uppercase"}>
+            {skill.title}
           </Text>
-          <Flex
-            pl={spacingLeft}
-            maxW={"650px"}
-            width={"100%"}
-            justifyContent={"space-between"}
-            wrap={"wrap"}
-          >
-            {skillsData.map((skill, idx) => (
-              <Stack width={{ base: "47%", md: "auto" }} key={idx}>
-                <Text
-                  variant={"md"}
-                  fontWeight={"bold"}
-                  textTransform={"uppercase"}
-                >
-                  {skill.title}
-                </Text>
-                {skill.data.map((data, idx) => (
-                  <Text key={idx} fontSize={"sm"}>
-                    {data}
-                  </Text>
-                ))}
-              </Stack>
-            ))}
-          </Flex>
-        </Flex>
-      </Box>
-    </MotionBox>
+          {skill.data.map((data, idx) => (
+            <Text key={idx} fontSize={"sm"}>
+              {data}
+            </Text>
+          ))}
+        </Stack>
+      ))}
+    </SectionContainer>
   )
 }
 
 const Experience = () => {
   return (
-    <MotionBox
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={cardVariants}
-    >
-      <Box paddingY={sectionPaddingY} paddingX={sectionPaddingX}>
-        <Flex
-          justifyContent={"center"}
-          gap={{ base: 14 }}
-          direction={{ base: "column", md: "row" }}
-          px={{ base: 0, md: 10, xl: 32 }}
-        >
-          <Text
-            textTransform={"uppercase"}
-            letterSpacing={"2px"}
-            variant={"md"}
-            fontWeight={"bold"}
-            color={"brand.primary"}
-            minWidth={"200px"}
-            alignSelf={"flex-start"}
-            textAlign={{ base: "start", md: "end" }}
-          >
-            Experience
-          </Text>
-          <Stack
-            pl={spacingLeft}
-            spacing={4}
-            fontWeight={"regular"}
-            width={"100%"}
-            maxW={"650px"}
-          >
-            {experienceData.map((exp, idx) => (
-              <Box key={idx}>
-                <Flex alignItems={"center"} justifyContent={"space-between"}>
-                  <Stack spacing={0}>
-                    <Text variant={"md"} fontWeight={"extrabold"}>
-                      {exp.companyName}
-                    </Text>
-                    <Text fontSize={"sm"} fontFamily={"incon"} hideFrom={"sm"}>
-                      {exp.duration}
-                    </Text>
-                    <Text variant={"md"}>{exp.position}</Text>
-                  </Stack>
-                  <Spacer />
-                  <Text fontSize={"sm"} hideBelow={"sm"} fontFamily={"incon"}>
-                    {exp.duration}
-                  </Text>
-                </Flex>
-              </Box>
-            ))}
-          </Stack>
-        </Flex>
-      </Box>
-    </MotionBox>
+    <SectionContainer sectionText="Experience">
+      {experienceData.map((exp, idx) => (
+        <Box key={idx}>
+          <Flex alignItems={"center"} justifyContent={"space-between"}>
+            <Stack spacing={0}>
+              <Text variant={"md"} fontWeight={"extrabold"}>
+                {exp.companyName}
+              </Text>
+              <Text fontSize={"sm"} fontFamily={"incon"} hideFrom={"sm"}>
+                {exp.duration}
+              </Text>
+              <Text variant={"md"}>{exp.position}</Text>
+            </Stack>
+            <Spacer />
+            <Text fontSize={"sm"} hideBelow={"sm"} fontFamily={"incon"}>
+              {exp.duration}
+            </Text>
+          </Flex>
+        </Box>
+      ))}
+    </SectionContainer>
   )
 }
 
 const FeaturedProjects = () => {
   return (
-    <MotionBox
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={cardVariants}
+    <SectionContainer
+      sectionText="Featured Projects"
+      stackProps={{ spacing: { base: 16, md: 24 } }}
     >
-      <Box paddingY={sectionPaddingY} paddingX={sectionPaddingX}>
-        <Flex
-          justifyContent={"center"}
-          gap={{ base: 14 }}
-          direction={{ base: "column", md: "row" }}
-          px={{ base: 0, md: 10, xl: 32 }}
-        >
-          <Text
-            textTransform={"uppercase"}
-            letterSpacing={"2px"}
-            variant={"md"}
-            fontWeight={"bold"}
-            color={"brand.primary"}
-            minWidth={"200px"}
-            alignSelf={"flex-start"}
-            textAlign={{ base: "start", md: "end" }}
+      {featuredProjectsData.map((project, idx) => (
+        <Box key={idx}>
+          <Flex
+            direction={{ base: "column", lg: "row" }}
+            alignItems={"start"}
+            gap={4}
+            justifyContent={"space-between"}
           >
-            Featured Projects
-          </Text>
-          <Stack
-            pl={spacingLeft}
-            spacing={{ base: 16, md: 24 }}
-            fontWeight={"regular"}
-            width={"100%"}
-            maxW={"650px"}
-          >
-            {featuredProjectsData.map((project, idx) => (
-              <Box key={idx}>
-                <Flex
-                  direction={{ base: "column", lg: "row" }}
-                  alignItems={"start"}
-                  gap={4}
-                  justifyContent={"space-between"}
-                >
-                  <Stack spacing={0}>
-                    <Image
-                      src={project.image}
-                      alt={project.description}
-                      width={"100%"}
-                      height={"100%"}
-                      objectFit={"cover"}
-                    />
-                  </Stack>
-                  <Spacer />
-                  <Stack>
-                    <Text fontWeight={"bold"}>{project.name}</Text>
-                    <Text fontSize={"sm"}>{project.description}</Text>
-                  </Stack>
-                </Flex>
-              </Box>
-            ))}
-          </Stack>
-        </Flex>
-      </Box>
-    </MotionBox>
+            <Stack spacing={0}>
+              <Image
+                src={project.image}
+                alt={project.description}
+                width={"100%"}
+                height={"100%"}
+                objectFit={"cover"}
+              />
+            </Stack>
+            <Spacer />
+            <Stack>
+              <Text fontWeight={"bold"}>{project.name}</Text>
+              <Text fontSize={"sm"}>{project.description}</Text>
+            </Stack>
+          </Flex>
+        </Box>
+      ))}
+    </SectionContainer>
   )
 }
 
 const OtherProjects = () => {
   return (
-    <MotionBox
-      initial="offscreen"
-      whileInView="onscreen"
-      viewport={{ once: true, amount: 0.2 }}
-      variants={cardVariants}
+    <SectionContainer
+      sectionText="Other Projects"
+      stackProps={{ spacing: spacing12_14 }}
     >
-      <Box paddingY={sectionPaddingY} paddingX={sectionPaddingX}>
-        <Flex
-          justifyContent={"center"}
-          gap={{ base: 14 }}
-          direction={{ base: "column", md: "row" }}
-          px={{ base: 0, md: 10, xl: 32 }}
-        >
-          <Text
-            textTransform={"uppercase"}
-            letterSpacing={"2px"}
-            variant={"md"}
-            fontWeight={"bold"}
-            color={"brand.primary"}
-            minWidth={"200px"}
-            alignSelf={"flex-start"}
-            textAlign={{ base: "start", md: "end" }}
-          >
-            Other Projects
+      {otherProjectsData.map((project, idx) => (
+        <Stack key={idx} spacing={3}>
+          <Text fontWeight={"bold"}>{project.name}</Text>
+          <Text fontSize={"sm"} mb={3}>
+            {project.description}
           </Text>
-          <Stack
-            pl={spacingLeft}
-            spacing={spacing12_14}
-            fontWeight={"regular"}
-            width={"100%"}
-            maxW={"650px"}
-          >
-            {otherProjectsData.map((project, idx) => (
-              <Stack key={idx} spacing={3}>
-                <Text fontWeight={"bold"}>{project.name}</Text>
-                <Text fontSize={"sm"} mb={3}>
-                  {project.description}
-                </Text>
-                <HStack wrap={"wrap"}>
-                  {project.tools.map((tool, idx) => (
-                    <Badge
-                      p={1}
-                      color={"brand.primary"}
-                      colorScheme={"blue"}
-                      fontFamily={"incon"}
-                      variant={"outline"}
-                      borderRadius={"4px"}
-                      textTransform={"capitalize"}
-                      key={idx}
-                    >
-                      {tool}
-                    </Badge>
-                  ))}
-                </HStack>
-              </Stack>
+          <HStack wrap={"wrap"}>
+            {project.tools.map((tool, idx) => (
+              <Badge
+                p={1}
+                color={"brand.primary"}
+                colorScheme={"blue"}
+                fontFamily={"incon"}
+                variant={"outline"}
+                borderRadius={"4px"}
+                textTransform={"capitalize"}
+                key={idx}
+              >
+                {tool}
+              </Badge>
             ))}
-          </Stack>
-        </Flex>
-      </Box>
-    </MotionBox>
+          </HStack>
+        </Stack>
+      ))}
+    </SectionContainer>
   )
 }

@@ -36,8 +36,6 @@ export default function MainLayout({ children, ...props }: Props) {
     setShowScrollToTopButton(latest)
   })
 
-  console.log(showScrollToTopButton)
-
   return (
     <Box minHeight={"100vh"} position={"relative"} {...props}>
       <Header />

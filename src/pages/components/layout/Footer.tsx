@@ -1,9 +1,7 @@
 import { Link } from "@chakra-ui/next-js"
-import { Box, Flex, HStack, Icon, Image, Text } from "@chakra-ui/react"
-import React from "react"
-import { FaGithub, FaInstagram, FaLinkedin, FaXTwitter } from "react-icons/fa6"
+import { Box, Flex, HStack, Icon, Text } from "@chakra-ui/react"
+import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6"
 import { IoIosMail } from "react-icons/io"
-import { TiMail } from "react-icons/ti"
 
 type Props = {}
 
@@ -20,7 +18,7 @@ export default function Footer({}: Props) {
           direction={{ base: "row", md: "column" }}
           gap={{ base: 1, md: 0 }}
           fontWeight={"semibold"}
-         whiteSpace={'nowrap'}
+          whiteSpace={"nowrap"}
         >
           <Text>Refrenced by</Text>
           <Text
@@ -33,7 +31,7 @@ export default function Footer({}: Props) {
             }}
             display={"inline"}
           >
-            Brittany Chiang v3
+            Brittany Chiang v3{" "}
           </Text>
         </Flex>
         <HStack>

@@ -1,3 +1,4 @@
+import { spacingLeft } from "@/util/style.util"
 import { extendTheme, StyleFunctionProps } from "@chakra-ui/react"
 import { Inconsolata, Lato } from "next/font/google"
 
@@ -10,11 +11,6 @@ const durationFont = Inconsolata({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500"],
 })
-
-// const siteFont = Raleway({
-//   subsets: ["latin"],
-//   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-// })
 
 const colors = {
   brand: {
@@ -45,6 +41,16 @@ const components = {
       lg: {
         fontSize: ["base", "md", "lg"],
       },
+      sectionMd: {
+        fontSize: ["md"],
+        textTransform: "uppercase",
+        letterSpacing: "2px",
+        fontWeight: "bold",
+        color: "brand.primary",
+        minWidth: "200px",
+        alignSelf: "flex-start",
+        textAlign: { base: "start", md: "end" },
+      },
       md: {
         fontSize: ["md"],
       },
@@ -69,6 +75,17 @@ const components = {
       },
       h5: {
         fontSize: ["md", "lg", "xl"],
+      },
+    },
+  },
+  Stack: {
+    variants: {
+      sectionContentStack: {
+        pl: spacingLeft,
+        spacing: 4,
+        fontWeight: "regular",
+        width: "100%",
+        maxW: "650px",
       },
     },
   },
