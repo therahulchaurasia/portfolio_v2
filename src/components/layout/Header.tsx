@@ -1,6 +1,4 @@
-import { Box, Button, Flex, HStack } from "@chakra-ui/react"
-import React from "react"
-import MyContainer from "./MyContainer"
+import { Button, Flex } from "@chakra-ui/react"
 
 type Props = {}
 
