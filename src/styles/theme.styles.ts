@@ -98,7 +98,7 @@ const styles = {
       transitionProperty: "opacity, transform, filter, background, color",
       transitionTimingFunction: "ease-in-out",
       transitionDuration: "500ms",
-      color: colors.brand.tertiary,
+      color: props.colorMode === "dark" ? "white" : colors.brand.tertiary,
       lineHeight: "1.5",
     },
     "::selection": {

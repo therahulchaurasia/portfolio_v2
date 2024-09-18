@@ -1,18 +1,26 @@
-import { Button, Flex } from "@chakra-ui/react"
+import { Flex, Icon, Switch, useColorMode } from "@chakra-ui/react"
+import { FiMoon } from "react-icons/fi"
+import { TiWeatherSunny } from "react-icons/ti"
 
 type Props = {}
 
 export default function Header({}: Props) {
+  const { colorMode, toggleColorMode } = useColorMode()
+
   return (
     <>
       <Flex
         justifyContent={"end"}
+        alignItems={"center"}
         px={10}
         py={6}
         position={"absolute"}
         right={0}
+        gap={2}
       >
-        <Button>Theme switcher</Button>
+        <Icon as={TiWeatherSunny} boxSize={6} />
+        <Switch size="lg" onChange={toggleColorMode} />
+        <Icon as={FiMoon} boxSize={5} />
       </Flex>
     </>
   )

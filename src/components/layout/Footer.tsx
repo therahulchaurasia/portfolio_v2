@@ -36,7 +36,14 @@ export default function Footer({}: Props) {
         </Flex>
         <HStack>
           {socials.map((social, idx) => (
-            <Link key={idx} href={social.href}>
+            <Link
+              key={idx}
+              target="_blank"
+              href={social.href}
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
               <Text
                 textTransform={"uppercase"}
                 letterSpacing={"1px"}
@@ -44,8 +51,29 @@ export default function Footer({}: Props) {
                 fontWeight={"bold"}
                 color={"brand.primary"}
                 alignSelf={"flex-start"}
+                position={"relative"}
                 mx={5}
                 hideBelow={"lg"}
+                transition={"all 0.2s ease-in-out"}
+                _after={{
+                  content: '""',
+                  position: "absolute",
+                  height: "2px",
+                  width: "100%",
+                  bg: "brand.primary",
+                  right: "0",
+                  bottom: 0,
+                  opacity: 0,
+                  transition: "all 0.2s ease-in-out",
+                }}
+                _hover={{
+                  _after: {
+                    opacity: 1,
+                    bottom: "-5px",
+                    height: "3px",
+                    transition: "all 0.2s ease-in-out",
+                  },
+                }}
               >
                 {social.label}
               </Text>

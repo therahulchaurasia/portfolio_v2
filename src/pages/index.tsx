@@ -10,6 +10,7 @@ import {
   Flex,
   Heading,
   HStack,
+  Icon,
   Image,
   keyframes,
   Spacer,
@@ -18,6 +19,7 @@ import {
 } from "@chakra-ui/react"
 import { useState } from "react"
 import MyContainer, { SectionContainer } from "../components/layout/MyContainer"
+import { FaArrowRight } from "react-icons/fa6"
 
 export default function Home() {
   return (
@@ -201,16 +203,19 @@ const Background = () => {
         U.S., Starry, and Apple Music.
       </Text>
       <Text>
-        As a software engineer, I enjoy bridging the gap between engineering and
-        design — combining my technical knowledge with my keen eye for design to
-        create a beautiful product. My goal is to always build applications that
-        are scalable and efficient under the hood while providing engaging,
-        pixel-perfect user experiences.
+        As a software engineer, I enjoy building software in the sweet spot
+        where design and engineering meet—creating things that look good but are
+        also built well under the hood. Starting new coding adventures is my
+        superpower, but completing them often feels like slaying a dragon. With
+        every line of code I write, I draw closer to victory, knowing that each
+        finished project is not just a milestone, but a testament to my growth.
       </Text>
       <Text>
-        When I&apos;m not in front of a computer screen, I&apos;m probably
-        snowboarding, cruising around on my penny board, or crossing off another
-        item on my bucket list.
+        <Text as={"span"} fontWeight={"semibold"}>
+          When I&apos;m not in front of a computer screen
+        </Text>
+        , I&apos;m probably taking a stroll around my neighborhood or getting
+        lost in a good book.
       </Text>
     </SectionContainer>
   )
@@ -245,7 +250,10 @@ const Skills = () => {
 
 const Experience = () => {
   return (
-    <SectionContainer sectionText="Experience">
+    <SectionContainer
+      sectionText="Experience"
+      stackProps={{ spacing: { base: 16, md: 24 } }}
+    >
       {experienceData.map((exp, idx) => (
         <Box key={idx}>
           <Flex alignItems={"center"} justifyContent={"space-between"}>
@@ -265,6 +273,18 @@ const Experience = () => {
           </Flex>
         </Box>
       ))}
+      <HStack role="group" cursor={"pointer"}>
+        <Heading variant={"h5"}>View My Resume</Heading>
+        <Icon
+          as={FaArrowRight}
+          boxSize={6}
+          color={"brand.primary"}
+          transition={"all 0.3s ease"}
+          _groupHover={{
+            transform: "translateX(10px)",
+          }}
+        />
+      </HStack>
     </SectionContainer>
   )
 }
@@ -276,12 +296,21 @@ const FeaturedProjects = () => {
       stackProps={{ spacing: { base: 16, md: 24 } }}
     >
       {featuredProjectsData.map((project, idx) => (
-        <Box key={idx}>
+        <Box
+          key={idx}
+          as={Link}
+          href={project.href}
+          target="_blank"
+          _hover={{
+            textDecoration: "none",
+          }}
+        >
           <Flex
             direction={{ base: "column", lg: "row" }}
             alignItems={"start"}
             gap={4}
             justifyContent={"space-between"}
+            cursor={"pointer"}
           >
             <Stack spacing={0}>
               <Image
