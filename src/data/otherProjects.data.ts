@@ -39,13 +39,27 @@ export const otherProjectsData = [
     href: "https://game-hub-self-iota.vercel.app/",
     description:
       "Game Hub is a sleek web application I developed using React with Vite, dedicated to gamers eager to explore the RAWG game database API. The main focus of the project was to improve my experience in handling API's.Users can effortlessly search for games and filter results across various platforms, making it easy to discover new titles tailored to their preferences.",
-    tools: ["JavaScript", "React", "Chakra UI", "Axios", "Rawg API"],
+    tools: ["JavaScript", "React", "Chakra UI", "Axios", "Rawg API", "Vercel"],
   },
   {
     name: "Space Tourism Website",
-    href: "https://fm-space-tourism-website.onrender.com/",
+    href: "https://github.com/therahulchaurasia/space-tourism-website",
     description:
       "I worked on the Space Tourism Website challenge from Frontend Mentor. I used Framer Motion to add cool animations and smooth transitions, making the site feel exciting and engaging. This project helped me improve my skills in Framer Motion, React, UI Design, and Animation.",
-    tools: ["JavaScript", "React", "Tailwind CSS", "Framer Motion"],
+    tools: ["JavaScript", "React", "Tailwind CSS", "Framer Motion", "Render"],
+  },
+  {
+    name: "LinkedIn Clone",
+    href: "https://github.com/therahulchaurasia/linkedin-clone",
+    description:
+      "For this project, I followed a tutorial to build a LinkedIn replica. The goal was to create a platform where users can create accounts, log in, view posts, and share their own posts. I utilized Firebase for user authentication and data storage, which made it easy to manage user accounts and posts. ",
+    tools: ["JavaScript", "CSS", "React", "Firebase"],
+  },
+  {
+    name: "Where in the world",
+    href: "https://github.com/therahulchaurasia/Where-in-the-world",
+    description:
+      "I created an interactive app using the RestCountries API that lets users explore countries and their flags. Users can search for countries and click on flags to view more details. This project enhanced my skills in API integration and user interface design.",
+    tools: ["JavaScript", "Tailwind CSS", "React", "API", "Netlify"],
   },
 ]

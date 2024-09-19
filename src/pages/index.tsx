@@ -201,7 +201,6 @@ const Hero = () => {
 
 const Background = () => {
   const { colorMode } = useColorMode()
-  console.log(colorMode)
 
   return (
     <SectionContainer sectionText="Background">
@@ -295,7 +294,11 @@ const Experience = () => {
           </Flex>
         </Box>
       ))}
-      <ProjectLink label="View my resume" href="#" iconProps={{ boxSize: 5 }} />
+      <ProjectLink
+        label="View my resume"
+        href="/test.pdf"
+        iconProps={{ boxSize: 5 }}
+      />
     </SectionContainer>
   )
 }
@@ -355,6 +358,7 @@ const OtherProjects = () => {
           <ProjectLink
             label={project.name}
             href={project.href}
+           headingProps={{ variant: "h6" }}
             iconProps={{ boxSize: 4 }}
           />
           <Text fontSize={"sm"} mb={3}>

@@ -76,6 +76,9 @@ const components = {
       h5: {
         fontSize: ["md", "lg", "xl"],
       },
+      h6: {
+        fontSize: ["sm", "md", "md"],
+      },
     },
   },
   Stack: {

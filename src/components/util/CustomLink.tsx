@@ -1,4 +1,4 @@
-import { Link } from "@chakra-ui/next-js"
+import { Link, LinkProps } from "@chakra-ui/next-js"
 import {
   Heading,
   HeadingProps,
@@ -29,8 +29,8 @@ export function ProjectLink({
   return (
     <HStack
       as={Link}
-      href={href}
       target="_blank"
+      href={href}
       role="group"
       cursor={"pointer"}
       _hover={{ textDecoration: "none" }}
