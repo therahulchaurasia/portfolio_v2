@@ -62,14 +62,12 @@ from {
 
 const formKey = process.env.NEXT_PUBLIC_TALLY_FORM_KEY
 
-
 export default function Home() {
   return (
     <>
       <MetaHead
         title="Rahul Chaurasiya - Home"
-        description="Design-minded software engineer with a goal to create digital
-          experiences that feel personal and inviting—because every pixel counts."
+        description="Design-minded software engineer with a goal to create websites that feel personal and inviting—because every pixel counts."
         url="/"
       >
         <script src="https://tally.so/widgets/embed.js" defer />
@@ -138,9 +136,8 @@ const Hero = () => {
           <Heading as={"span"} variant={"h2"}>
             {process.env.NEXT_PUBLIC_USER_NAME}
           </Heading>
-          , a design-loving software engineer with a goal to create digital
-          experiences that feel personal and inviting—because every pixel
-          counts.
+          , a design-loving software engineer with a goal to create websites
+          that feel personal and inviting—because every pixel counts.
         </Heading>
         <Image
           mx={2}
@@ -397,7 +394,6 @@ const OtherProjects = () => {
 }
 
 const ContactForm = () => {
- 
   return (
     <SectionContainer sectionText="Let's Connect">
       <Box>
