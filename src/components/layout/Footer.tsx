@@ -14,19 +14,20 @@ export default function Footer({}: Props) {
         gap={5}
       >
         <Flex
-          direction={{ base: "row", md: "column" }}
-          gap={{ base: 1, md: 0 }}
+          direction={"column"}
+          gap={1}
           fontWeight={"semibold"}
           whiteSpace={"nowrap"}
+          textAlign={{ base: "center", md: "start" }}
         >
-          <Text>Refrenced by</Text>
-
           <CustomTextLink
             color={"brand.primary"}
-            label={"Brittany Chiang v3"}
+            label={"Refrenced by Brittany Chiang v3"}
             href={"https://v3.brittanychiang.com/"}
             afterColor="brand.primary"
+            width={"min-content"}
           />
+          <Text>And Developed by, Your Truly</Text>
         </Flex>
         <HStack>
           {socials.map((social, idx) => (

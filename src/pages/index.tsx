@@ -18,27 +18,11 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import MyContainer, { SectionContainer } from "../components/layout/MyContainer"
+import Script from "next/script"
+import { usePathname } from "next/navigation"
 
-export default function Home() {
-  return (
-    <>
-      <MetaHead
-        title="Rahul Chaurasiya - Home"
-        description="Design-minded software engineer with a goal to create digital
-          experiences that feel personal and inviting—because every pixel counts."
-        url="/"
-      />
-      <Hero />
-      <Background />
-      <Skills />
-      <Experience />
-      <FeaturedProjects />
-      <OtherProjects />
-    </>
-  )
-}
 const waveAnimation = keyframes`
 from {
 			
@@ -75,6 +59,31 @@ from {
 			transform: none
 	}
 `
+
+const formKey = process.env.NEXT_PUBLIC_TALLY_FORM_KEY
+
+
+export default function Home() {
+  return (
+    <>
+      <MetaHead
+        title="Rahul Chaurasiya - Home"
+        description="Design-minded software engineer with a goal to create digital
+          experiences that feel personal and inviting—because every pixel counts."
+        url="/"
+      >
+        <script src="https://tally.so/widgets/embed.js" defer />
+      </MetaHead>
+      <Hero />
+      <Background />
+      <Skills />
+      <Experience />
+      <FeaturedProjects />
+      <OtherProjects />
+      <ContactForm />
+    </>
+  )
+}
 
 const Hero = () => {
   const wave = `${waveAnimation} 1s`
@@ -358,7 +367,7 @@ const OtherProjects = () => {
           <ProjectLink
             label={project.name}
             href={project.href}
-           headingProps={{ variant: "h6" }}
+            headingProps={{ variant: "h6" }}
             iconProps={{ boxSize: 4 }}
           />
           <Text fontSize={"sm"} mb={3}>
@@ -383,6 +392,24 @@ const OtherProjects = () => {
           </HStack>
         </Stack>
       ))}
+    </SectionContainer>
+  )
+}
+
+const ContactForm = () => {
+ 
+  return (
+    <SectionContainer sectionText="Let's Connect">
+      <Box>
+        <iframe
+          data-tally-src={`https://tally.so/embed/${formKey}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`}
+          loading="lazy"
+          width="100%"
+          height="300"
+          title="Let's Connect
+"
+        ></iframe>
+      </Box>
     </SectionContainer>
   )
 }

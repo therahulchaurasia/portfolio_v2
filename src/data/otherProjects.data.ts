@@ -31,8 +31,22 @@ export const otherProjectsData = [
     name: "ChakraFramer",
     href: "https://chakraframer.com/",
     description:
-      "Welcome to Chakra Framer, a passion project created by me and my talented friends who love crafting beautiful frontends! This platform is our way of giving back to the developer community. Here, you’ll find an exciting library of over 20+ components that are not only easy to use but also customizable to fit any project. Whether you're a seasoned developer or just starting, our components are designed to inspire creativity and make your UI development journey a breeze!",
+    "Welcome to Chakra Framer, a passion project created by me and my talented friends who love crafting beautiful frontends! This platform is our way of giving back to the developer community. Here, you'll find an exciting library of over 20+ components that are not only easy to use but also customizable to fit any project. Whether you're a seasoned developer or just starting, our components are designed to inspire creativity and make your UI development journey a breeze!",
     tools: ["JavaScript", "Next JS", "Chakra UI", "SEO"],
+  },
+  {
+    name: "Maths Calculators",
+    href: "https://calculator-p-a0n421v0h-thesohailjafris-projects.vercel.app/",
+    description:
+      "I contributed to the Maths Calculators app, which allows various mathematical operations and conversions. This project enhanced my skills in user experience design and mathematical logic while providing a practical tool for users.",
+    tools: [
+      "JavaScript",
+      "Next JS",
+      "Chakra UI",
+      "Sanity.io",
+      "Tally Forms",
+      "SEO",
+    ],
   },
   {
     name: "Game Hub",
