@@ -302,7 +302,7 @@ const Experience = () => {
       ))}
       <ProjectLink
         label="View my resume"
-        href="/test.pdf"
+        href="/resume.pdf"
         iconProps={{ boxSize: 5 }}
       />
     </SectionContainer>
