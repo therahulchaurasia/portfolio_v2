@@ -1,5 +1,5 @@
-import MetaHead from "@/components/util/MetaHead"
 import { CustomTextLink, ProjectLink } from "@/components/util/CustomLink"
+import MetaHead from "@/components/util/MetaHead"
 import { experienceData } from "@/data/experience.data"
 import { featuredProjectsData } from "@/data/featuredProjects.data"
 import { otherProjectsData } from "@/data/otherProjects.data"
@@ -18,10 +18,8 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import MyContainer, { SectionContainer } from "../components/layout/MyContainer"
-import Script from "next/script"
-import { usePathname } from "next/navigation"
 
 const waveAnimation = keyframes`
 from {

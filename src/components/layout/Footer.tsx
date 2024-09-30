@@ -27,7 +27,7 @@ export default function Footer({}: Props) {
             afterColor="brand.primary"
             width={"min-content"}
           />
-          <Text>And Developed by, Your Truly</Text>
+          <Text>And Developed by, Yours Truly</Text>
         </Flex>
         <HStack>
           {socials.map((social, idx) => (
