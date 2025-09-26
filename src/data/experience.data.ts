@@ -1,6 +1,6 @@
 export const experienceData = [
   {
-    companyName: "Webenetic",
+    companyName: "Selco Enterprises",
     position: "Software Developer",
     duration: "May 2023 - Present",
   },

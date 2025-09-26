@@ -12,14 +12,21 @@ const durationFont = Inconsolata({
   weight: ["200", "300", "400", "500"],
 })
 
-const colors = {
-  brand: {
-    primary: "#007BFF", // Blue
-    secondary: "#FFDC00", // Yellow
-    tertiary: "#444452", // Gray
-  },
+const myColors = {
+  primaryBlue: "#007BFF", // Blue
+  primaryRed: "#C6351C", // Red
+  secondary: "#FFDC00", // Yellow
+  tertiary: "#444452", // Gray
 }
 
+const semanticTokens = {
+  colors: {
+    "brand.primary": {
+      default: myColors.primaryRed, // light mode
+      _dark: myColors.primaryBlue, // dark mode
+    },
+  },
+}
 const fonts = {
   heading: siteFont.style.fontFamily,
   body: siteFont.style.fontFamily,
@@ -97,15 +104,15 @@ const components = {
 const styles = {
   global: (props: StyleFunctionProps) => ({
     body: {
-      // bg: "#0D172A",
+      bg: props.colorMode === "dark" ? "#0D172A" : "#F6F2E9",
       transitionProperty: "opacity, transform, filter, background, color",
       transitionTimingFunction: "ease-in-out",
       transitionDuration: "500ms",
-      color: props.colorMode === "dark" ? "white" : colors.brand.tertiary,
+      color: props.colorMode === "dark" ? "white" : myColors.tertiary,
       lineHeight: "1.5",
     },
     "::selection": {
-      background: colors.brand.secondary,
+      background: myColors.secondary,
     },
     "::-webkit-scrollbar": {
       width: "8px",
@@ -117,20 +124,23 @@ const styles = {
     },
     /* Handle */
     "::-webkit-scrollbar-thumb": {
-      background: colors.brand.primary,
+      background:
+        props.colorMode === "dark" ? myColors.primaryBlue : myColors.primaryRed,
       borderRadius: "10px",
     },
 
     /* Handle on hover */
     "::-webkit-scrollbar-thumb:hover": {
-      background: colors.brand.primary,
+      background:
+        props.colorMode === "dark" ? myColors.primaryBlue : myColors.primaryRed,
     },
   }),
 }
 
 export const theme = extendTheme({
-  colors,
+  colors: myColors,
   fonts,
   styles,
   components,
+  semanticTokens,
 })
