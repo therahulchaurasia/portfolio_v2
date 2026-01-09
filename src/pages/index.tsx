@@ -209,9 +209,9 @@ const Background = () => {
   return (
     <SectionContainer sectionText="Background">
       <Text>
-        I&apos;m currently an Engineer at Webenetic Pvt Ltd where I work on our
-        home grown CRM and websites for our clients. Meanwhile, I also freelance
-        with the cool people at{" "}
+        I&apos;m currently an Engineer at Selco Enterprises Pvt Ltd where I work
+        on our home grown CRM and websites for our clients. Meanwhile, I also
+        freelance with the cool people at{" "}
         {/* <Text
           as={Link}
           href={"https://thezenlabs.in/"}
