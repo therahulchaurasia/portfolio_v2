@@ -209,7 +209,7 @@ const Background = () => {
   return (
     <SectionContainer sectionText="Background">
       <Text>
-        I&apos;m currently an Engineer at Selco Enterprises Pvt Ltd where I work
+        I&apos;m currently an Engineer at Selco Enterprises where I work
         on our home grown CRM and websites for our clients. Meanwhile, I also
         freelance with the cool people at{" "}
         {/* <Text
