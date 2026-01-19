@@ -14,8 +14,8 @@ export const otherProjectsData = [
     ],
   },
   {
-    name: "Santy Tutorials",
-    href: "https://santytutorials.com/",
+    name: "Knowly Tutorials",
+    href: "https://knowlytutorials.com/",
     description:
       "I'm excited to introduce Santy Tutorials, a freelance project dedicated to serving international students. This initiative was born from the need for a comprehensive website that showcases all the course offerings, student testimonials, and the inspiring story behind the tutorials. Together with my team, we crafted a platform that highlights the dedicated staff members, lists the various locations, and includes forms to effectively track leads.",
     tools: [
@@ -31,7 +31,7 @@ export const otherProjectsData = [
     name: "ChakraFramer",
     href: "https://chakraframer.com/",
     description:
-    "Welcome to Chakra Framer, a passion project created by me and my talented friends who love crafting beautiful frontends! This platform is our way of giving back to the developer community. Here, you'll find an exciting library of over 20+ components that are not only easy to use but also customizable to fit any project. Whether you're a seasoned developer or just starting, our components are designed to inspire creativity and make your UI development journey a breeze!",
+      "Welcome to Chakra Framer, a passion project created by me and my talented friends who love crafting beautiful frontends! This platform is our way of giving back to the developer community. Here, you'll find an exciting library of over 20+ components that are not only easy to use but also customizable to fit any project. Whether you're a seasoned developer or just starting, our components are designed to inspire creativity and make your UI development journey a breeze!",
     tools: ["JavaScript", "Next JS", "Chakra UI", "SEO"],
   },
   {
