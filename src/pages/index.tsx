@@ -209,9 +209,9 @@ const Background = () => {
   return (
     <SectionContainer sectionText="Background">
       <Text>
-        I&apos;m currently an Engineer at Selco Enterprises where I work
-        on our home grown CRM and websites for our clients. Meanwhile, I also
-        freelance with the cool people at{" "}
+        I built a custom CRM and order management system at Selco Enterprises.
+        Currently, I'm freelancing and exploring how AI is reshaping the tech
+        landscape.{" "}
         {/* <Text
           as={Link}
           href={"https://thezenlabs.in/"}
@@ -220,12 +220,12 @@ const Background = () => {
         >
           thezenlabs.
         </Text> */}
-        <CustomTextLink
+        {/* <CustomTextLink
           label="thezenlabs"
           href={"https://thezenlabs.in/"}
           afterColor={colorMode === "dark" ? "white" : "brand.tertiary"}
           fontWeight={"extrabold"}
-        />
+        /> */}
       </Text>
       <Text>
         As a software engineer, I enjoy building software in the sweet spot
@@ -330,17 +330,18 @@ const FeaturedProjects = () => {
             justifyContent={"space-between"}
             cursor={"pointer"}
           >
-            <Stack spacing={0}>
-              <Image
-                src={project.image}
-                alt={project.description}
-                width={"100%"}
-                height={"100%"}
-                objectFit={"cover"}
-              />
+            <Stack spacing={0} w={{ base: "100%", lg: "90%" }}>
+              <Box aspectRatio={"16/9"} width={"100%"} overflow={"hidden"}>
+                <Image
+                  src={project.image}
+                  alt={project.description}
+                  width={"100%"}
+                  height={"100%"}
+                  objectFit={"contain"}
+                />
+              </Box>
             </Stack>
-            <Spacer />
-            <Stack>
+            <Stack w={{ base: "100%", lg: "38%" }}>
               <Text fontWeight={"bold"}>{project.name}</Text>
               <Text fontSize={"sm"}>{project.description}</Text>
             </Stack>
