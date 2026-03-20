@@ -18,7 +18,7 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import MyContainer, { SectionContainer } from "../components/layout/MyContainer"
 
 const waveAnimation = keyframes`
@@ -393,6 +393,13 @@ const OtherProjects = () => {
 }
 
 const ContactForm = () => {
+  useEffect(() => {
+    const w = window as any
+    if (typeof w.Tally !== "undefined") {
+      w.Tally.loadEmbeds()
+    }
+  }, [])
+
   return (
     <SectionContainer sectionText="Let's Connect">
       <Box>
@@ -401,8 +408,9 @@ const ContactForm = () => {
           loading="lazy"
           width="100%"
           height="300"
-          title="Let's Connect
-"
+          frameBorder="0"
+          style={{ background: "transparent" }}
+          title="Let's Connect"
         ></iframe>
       </Box>
     </SectionContainer>
